@@ -8,6 +8,9 @@ public enum AudioId
 
     BgmMainMenu,
     BgmGameplay,
+    
+    BgmHorror_01,
+    BgmHorror_02,
 
     Win,
     Lose

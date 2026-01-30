@@ -1,13 +1,17 @@
+using UnityEngine;
+
 public class MenuScene : InjectableMonoBehaviour
 {
     [Inject] private IDataService data;
     [Inject] private IAudioService audio;
 
-    private void Awake()
+    protected override void Awake()
     {
-        // audio.PlayBgm(AudioId.BgmMainMenu);
+        base.Awake();
+
+        if (audio != null)
+            audio.PlayBgm(AudioId.BgmMainMenu);
+        else
+            Debug.LogError($"Audio is null");
     }
-    
-    
-    
 }

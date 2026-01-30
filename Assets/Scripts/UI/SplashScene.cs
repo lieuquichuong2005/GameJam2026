@@ -21,7 +21,7 @@ public class SplashScene : MonoBehaviour
     {
         var loadingTask = LoadingTextEffect(token);
 
-        await UniTask.Delay(5000, cancellationToken: token);
+        await UniTask.Delay(1000, cancellationToken: token);
 
         _cts.Cancel();
 

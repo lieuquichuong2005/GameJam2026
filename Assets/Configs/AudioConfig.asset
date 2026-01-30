@@ -30,18 +30,26 @@ MonoBehaviour:
     volume: 1
     loop: 0
   - id: 4
-    clip: {fileID: 0}
+    clip: {fileID: 8300000, guid: 66d146a0e095a1e4b9ce1a47c4365c22, type: 3}
     volume: 1
     loop: 1
   - id: 5
-    clip: {fileID: 0}
+    clip: {fileID: 8300000, guid: 9e5f0fe0a50076741ab25a6f443a55ff, type: 3}
     volume: 1
     loop: 1
   - id: 6
-    clip: {fileID: 0}
+    clip: {fileID: 8300000, guid: 19cb3dbb88e01de419342aa51d9b3009, type: 3}
     volume: 1
     loop: 0
   - id: 7
+    clip: {fileID: 0}
+    volume: 1
+    loop: 0
+  - id: 8
+    clip: {fileID: 0}
+    volume: 1
+    loop: 0
+  - id: 9
     clip: {fileID: 0}
     volume: 1
     loop: 0
