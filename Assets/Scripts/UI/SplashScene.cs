@@ -1,32 +1,50 @@
+using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using Cysharp.Threading.Tasks;
+using System.Threading;
 
 public class SplashScene : MonoBehaviour
 {
-    [Header("Audio")] [SerializeField] private AudioConfig audioConfig;
-    [SerializeField] private AudioSourceProvider audioProvider;
+    [SerializeField] private TextMeshProUGUI _loadingText;
+    [SerializeField] private int nextSceneIndex = 1;
+
+    private CancellationTokenSource _cts;
 
     private void Awake()
     {
-        DontDestroyOnLoad(gameObject);
-
-        RegisterServices();
-        LoadFirstScene();
+        _cts = new CancellationTokenSource();
+        RunSplashAsync(_cts.Token).Forget();
     }
 
-    private void RegisterServices()
+    private async UniTaskVoid RunSplashAsync(CancellationToken token)
     {
-        var audioService = new AudioService(audioConfig, audioProvider);
-        Services.Register<IAudioService>(audioService);
+        var loadingTask = LoadingTextEffect(token);
 
-        var dataService = new JsonDataService();
-        dataService.Load();
-        Services.Register<IDataService>(dataService);
+        await UniTask.Delay(5000, cancellationToken: token);
+
+        _cts.Cancel();
+
+        SceneManager.LoadScene(nextSceneIndex);
     }
 
-
-    private void LoadFirstScene()
+    private async UniTask LoadingTextEffect(CancellationToken token)
     {
-        SceneManager.LoadScene(1);
+        string baseText = "Loading";
+        int dotCount = 0;
+
+        while (!token.IsCancellationRequested)
+        {
+            dotCount = (dotCount + 1) % 7;
+            _loadingText.text = baseText + new string('.', dotCount);
+
+            await UniTask.Delay(400, cancellationToken: token);
+        }
+    }
+
+    private void OnDestroy()
+    {
+        _cts?.Cancel();
+        _cts?.Dispose();
     }
 }
