@@ -131,6 +131,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: PlayScene
       objectReference: {fileID: 0}
+    - target: {fileID: 6208806081796372175, guid: 1f288d7a8663f0e44b23235e64440114, type: 3}
+      propertyPath: m_Constraints
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 8311898170061481531, guid: 1f288d7a8663f0e44b23235e64440114, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -170,6 +174,10 @@ PrefabInstance:
     - target: {fileID: 8311898170061481531, guid: 1f288d7a8663f0e44b23235e64440114, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8435332000041276068, guid: 1f288d7a8663f0e44b23235e64440114, type: 3}
+      propertyPath: groundMask.m_Bits
+      value: 64
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
