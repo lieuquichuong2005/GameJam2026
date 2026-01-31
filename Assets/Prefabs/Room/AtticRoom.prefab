@@ -336,7 +336,7 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0.008453369, y: -2.9195557}
+  m_Offset: {x: 0.008453369, y: -4.4456367}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -346,7 +346,7 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 19.126648, y: 4.909668}
+  m_Size: {x: 19.126648, y: 1.8575058}
   m_EdgeRadius: 0
 --- !u!1 &3826381060238809906
 GameObject:
@@ -357,7 +357,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 198625461116778970}
-  - component: {fileID: 7158270311909460766}
+  - component: {fileID: 4162373114495610460}
+  - component: {fileID: 3000942019907619724}
   m_Layer: 0
   m_Name: Door
   m_TagString: Untagged
@@ -380,8 +381,24 @@ Transform:
   m_Children: []
   m_Father: {fileID: 6548600118464635768}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!68 &7158270311909460766
-EdgeCollider2D:
+--- !u!114 &4162373114495610460
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3826381060238809906}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5c774e70aee1c9948a8a496a966ad502, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::DoorInteractable
+  _requirePlayerNear: 1
+  _interactDistance: 0.5
+  _targetRoomType: 3
+  _spawnPositionInTargetRoom: {x: 5, y: 0}
+--- !u!61 &3000942019907619724
+BoxCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -410,23 +427,22 @@ EdgeCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: -0.5900847, y: -0.081391096}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Size: {x: 3.3196433, y: 1.6511283}
   m_EdgeRadius: 0
-  m_Points:
-  - {x: -2.7789478, y: -1.0173869}
-  - {x: -2.3072035, y: -0.57829237}
-  - {x: -0.9734819, y: 0.8430104}
-  - {x: 1.3492267, y: 0.72738314}
-  - {x: 0.741344, y: -0.99966836}
-  - {x: -2.7759871, y: -1.0173874}
-  m_AdjacentStartPoint: {x: 0, y: 0}
-  m_AdjacentEndPoint: {x: 0, y: 0}
-  m_UseAdjacentStartPoint: 0
-  m_UseAdjacentEndPoint: 0
 --- !u!1 &5928167403334583151
 GameObject:
   m_ObjectHideFlags: 0
@@ -527,7 +543,6 @@ GameObject:
   m_Component:
   - component: {fileID: 6548600118464635768}
   - component: {fileID: 3228719766334553844}
-  - component: {fileID: 2048243564086245880}
   m_Layer: 0
   m_Name: AtticRoom
   m_TagString: Untagged
@@ -571,52 +586,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::RoomView
   data: {fileID: 11400000, guid: 9366efe654801e442806237a85a107ee, type: 2}
---- !u!61 &2048243564086245880
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8182556048622382546}
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_ForceSendLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ForceReceiveLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ContactCaptureLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_CallbackLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_CompositeOperation: 0
-  m_CompositeOrder: 0
-  m_Offset: {x: -0.008483887, y: -4.5612793}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0, y: 0}
-    oldSize: {x: 0, y: 0}
-    newSize: {x: 0, y: 0}
-    adaptiveTilingThreshold: 0
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  m_Size: {x: 19.126709, y: 1.6262207}
-  m_EdgeRadius: 0
 --- !u!1 &8228142869714048556
 GameObject:
   m_ObjectHideFlags: 0
