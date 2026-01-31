@@ -1,7 +1,9 @@
 using System;
 using System.Collections.Generic;
+using EditorAttributes;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using UnityEngine.UI;
 
 /// <summary>
 /// Quản Lí UI. Không Quản Lí CoreGameplay
@@ -10,8 +12,8 @@ public class LevelScene : InjectableMonoBehaviour
 {
     [Inject] private InventoryService inventory;
 
-    [SerializeField] private LevelView _levelView;
-    [SerializeField] private Camera _mainCamera;
+    [Required] [SerializeField] private LevelView _levelView;
+    [Required] [SerializeField] private Camera _mainCamera;
 
     [SerializeField] private List<InventoryItemView> inventorySlots = new List<InventoryItemView>();
     private readonly List<IEntity> _entities = new();
