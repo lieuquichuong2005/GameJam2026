@@ -1,3 +1,5 @@
+using EditorAttributes;
+using Spine.Unity;
 using UnityEngine;
 
 public class PlayerController : MonoBehaviour, IEntity
@@ -6,6 +8,9 @@ public class PlayerController : MonoBehaviour, IEntity
     [SerializeField] private LayerMask groundMask;
     [SerializeField] private float groundCheckDistance = 5f;
 
+    [Required] [SerializeField] private SkeletonAnimation _character;
+    
+private bool _isFacingRight = true;
     private float targetX;
     private bool isMoving;
 
