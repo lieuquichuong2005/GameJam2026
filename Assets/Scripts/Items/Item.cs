@@ -5,8 +5,22 @@ using UnityEngine;
 /// Template cho các item khác: Key, Coin, Note, etc.
 /// Copy file này và đổi tên class
 /// </summary>
+public enum ItemType
+{
+    None,
+    Salt,
+    Knife,
+    Butter,
+    Flour,
+    Cake,
+    Diary,
+    AppleJam,
+    Iced,
+}
+
 public class Item : InjectableMonoBehaviour, IItemPickup
 {
+    [SerializeField] private ItemType _itemType;
     [Required] [SerializeField] private InventoryItem _itemToGive;
     [Required] [SerializeField] private SpriteRenderer _spriteRenderer;
     [Required] [SerializeField] private Collider2D _collider2d;
@@ -27,6 +41,7 @@ public class Item : InjectableMonoBehaviour, IItemPickup
 
     public Transform Transform => transform;
     public float InteractDistance => 0f;
+    public ItemType ItemType => _itemType;
 
     public bool CanInteract()
     {

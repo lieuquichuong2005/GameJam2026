@@ -38,21 +38,28 @@ public class LevelScene : InjectableMonoBehaviour
 
         if (emptySlot == null)
         {
-            Debug.LogWarning("Inventory full - no empty slots");
             return;
         }
 
         emptySlot.SetItem(item);
-        Debug.Log($"Added {item.itemId} to inventory slot");
     }
 
     protected override void Awake()
     {
-        // base.Awake();
-        inventory = new InventoryService();
-        Services.Register(inventory);
+        base.Awake();
+        if (inventory == null)
+        {
+            inventory = new InventoryService();
+            Services.Register(inventory);
+        }
+
         _lastTime = Time.realtimeSinceStartup;
         InitInventorySlot(inventory);
+
+        foreach (var slot in inventorySlots)
+        {
+            slot.Init(inventory);
+        }
 
         _isPlaying = true;
 
@@ -103,27 +110,23 @@ public class LevelScene : InjectableMonoBehaviour
         if (!_entities.Contains(entity))
         {
             _entities.Add(entity);
-            Debug.Log($"[LEVEL] Register entity: {entity}");
         }
     }
 
     public void Unregister(IEntity entity)
     {
         _entities.Remove(entity);
-        Debug.Log($"[LEVEL] Unregister entity: {entity}");
     }
 
     public void Pause()
     {
         _paused = true;
-        Debug.Log("[LEVEL] Paused");
     }
 
     public void Resume()
     {
         _paused = false;
         _lastTime = Time.realtimeSinceStartup;
-        Debug.Log("[LEVEL] Resumed");
     }
 
     public void OnPlayAreaPressed(BaseEventData eventData)
@@ -144,13 +147,11 @@ public class LevelScene : InjectableMonoBehaviour
     {
         if (!_isPlaying)
         {
-            Debug.Log("[LEVEL] OnPlayAreaPressed");
             return;
         }
 
         var position = _mainCamera.ScreenToWorldPoint(scenepoint);
         _ = _levelView.PressOnPosition(position);
-        Debug.Log($"Pressed position: {position}");
     }
 
     public async UniTask PlayPickupItemEffect(

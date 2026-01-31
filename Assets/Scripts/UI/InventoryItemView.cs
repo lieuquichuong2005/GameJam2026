@@ -10,15 +10,15 @@ public class InventoryItemView : MonoBehaviour
     private InventoryItem data;
     private InventoryService inventory;
     private bool isEmpty = true;
-    public RectTransform Rect => (RectTransform)transform;
-
 
     public void Init(InventoryService service)
     {
         inventory = service;
         button.onClick.AddListener(OnClick);
+
         inventory.OnSelected += HandleSelected;
         inventory.OnDeselected += HandleDeselected;
+
         ClearSlot();
     }
 
@@ -31,16 +31,15 @@ public class InventoryItemView : MonoBehaviour
         }
 
         data = item;
-        icon.gameObject.SetActive(true);
         icon.sprite = item.icon;
         icon.enabled = true;
+        icon.gameObject.SetActive(true);
         isEmpty = false;
     }
 
     public void ClearSlot()
     {
         data = null;
-
         icon.sprite = null;
         icon.enabled = false;
         icon.gameObject.SetActive(false);
@@ -50,6 +49,9 @@ public class InventoryItemView : MonoBehaviour
 
     public bool IsEmpty() => isEmpty;
     public InventoryItem GetItem() => data;
+
+    public void HideIcon() => icon.enabled = false;
+    public void ShowIcon() => icon.enabled = true;
 
     private void OnClick()
     {

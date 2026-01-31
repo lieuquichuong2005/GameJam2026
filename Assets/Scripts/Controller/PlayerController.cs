@@ -25,8 +25,6 @@ public class PlayerController : MonoBehaviour, IEntity
 
         UpdateFacing(x);
         PlayAnim(Walk, true);
-
-        Debug.Log($"[PLAYER] Move to X = {x}");
     }
 
     public bool ReachedX(float x, float threshold = 0.3f)
@@ -54,8 +52,6 @@ public class PlayerController : MonoBehaviour, IEntity
             {
                 isMoving = false;
                 PlayAnim(Idle, true);
-
-                Debug.Log("[PLAYER] Reached X target");
             }
         }
         else

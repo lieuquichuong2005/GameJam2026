@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: Knife
   m_EditorClassIdentifier: 
   itemId: knife
+  itemType: 2
   icon: {fileID: 21300000, guid: 6a31c4d0e4fde1b43a8643881f24cf27, type: 3}
   inspectSprite: {fileID: 21300000, guid: 6a31c4d0e4fde1b43a8643881f24cf27, type: 3}
   canRotate: 0
