@@ -96,18 +96,20 @@ public class LevelView : InjectableMonoBehaviour, IEntity
     /// <summary>
     /// Xử lý nhặt item - KHÔNG CẦN ĐI LẠI
     /// </summary>
-    private void HandleItemPickup(IItemPickup itemPickup)
+    private async void HandleItemPickup(IItemPickup itemPickup)
     {
-        Debug.Log($"[LEVEL] Clicked item pickup: {itemPickup.GetItem()?.itemId}");
+        var item = itemPickup.GetItem();
+        if (item == null) return;
 
-        if (!itemPickup.CanInteract())
-        {
-            Debug.Log("[LEVEL] Cannot pickup this item");
-            return;
-        }
+        itemPickup.SetVisible(false);
+        itemPickup.SetInteractable(false);
 
-        itemPickup.Interact();
+        await FindObjectOfType<LevelScene>()
+            .PlayPickupItemEffect(item, itemPickup.Transform.position);
+
+        Destroy(itemPickup.Transform.gameObject);
     }
+
 
     /// <summary>
     /// Xử lý tương tác với object - CẦN ĐI LẠI GẦN

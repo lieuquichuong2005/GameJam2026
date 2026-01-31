@@ -1,3 +1,4 @@
+using EditorAttributes;
 using UnityEngine;
 
 /// <summary>
@@ -6,8 +7,9 @@ using UnityEngine;
 /// </summary>
 public class Item : InjectableMonoBehaviour, IItemPickup
 {
-    [SerializeField] private InventoryItem itemToGive;
-    [SerializeField] private SpriteRenderer spriteRenderer;
+    [Required] [SerializeField] private InventoryItem _itemToGive;
+    [Required] [SerializeField] private SpriteRenderer _spriteRenderer;
+    [Required] [SerializeField] private Collider2D _collider2d;
 
     [Inject] private InventoryService inventoryService;
 
@@ -17,9 +19,9 @@ public class Item : InjectableMonoBehaviour, IItemPickup
     {
         base.Awake();
 
-        if (itemToGive != null && spriteRenderer != null && spriteRenderer.sprite == null)
+        if (_itemToGive != null && _spriteRenderer != null && _spriteRenderer.sprite == null)
         {
-            spriteRenderer.sprite = itemToGive.icon;
+            _spriteRenderer.sprite = _itemToGive.icon;
         }
     }
 
@@ -28,7 +30,7 @@ public class Item : InjectableMonoBehaviour, IItemPickup
 
     public bool CanInteract()
     {
-        return !collected && itemToGive != null && inventoryService != null;
+        return !collected && _itemToGive != null && inventoryService != null;
     }
 
     public void Interact()
@@ -36,13 +38,23 @@ public class Item : InjectableMonoBehaviour, IItemPickup
         if (!CanInteract())
             return;
 
-        Debug.Log($"[ItemPickup] Picked up: {itemToGive.itemId}");
+        Debug.Log($"[ItemPickup] Picked up: {_itemToGive.itemId}");
 
-        inventoryService.AddItem(itemToGive);
+        inventoryService.AddItem(_itemToGive);
         collected = true;
 
         Destroy(gameObject, 0.2f);
     }
 
-    public InventoryItem GetItem() => itemToGive;
+    public InventoryItem GetItem() => _itemToGive;
+
+    public void SetVisible(bool visible)
+    {
+        _spriteRenderer.enabled = visible;
+    }
+
+    public void SetInteractable(bool value)
+    {
+        _collider2d.enabled = value;
+    }
 }

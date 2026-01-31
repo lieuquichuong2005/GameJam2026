@@ -147,5 +147,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6802124c979b0fe44b94b767a634d2bd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemToGive: {fileID: 11400000, guid: 4474929a2b283bd43a70f912a318796e, type: 2}
-  spriteRenderer: {fileID: 1887640175457753750}
+  _itemToGive: {fileID: 11400000, guid: 4474929a2b283bd43a70f912a318796e, type: 2}
+  _spriteRenderer: {fileID: 1887640175457753750}
+  _collider2d: {fileID: 328162365818138222}

@@ -465,8 +465,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cfffdb5582e1286408546746ccf1b8d6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _canvas: {fileID: 2978528988620595795}
   _levelView: {fileID: 3823881457183377487}
   _mainCamera: {fileID: 7003961994352657827}
+  _flyingItemPrefab: {fileID: 7011560792960851532, guid: d57ad3a8ab90a3745a8ceb59fe6ae4db, type: 3}
+  _inventoryRoot: {fileID: 3412372968864984960}
+  _inventoryPanel: {fileID: 7220095086622449461}
   inventorySlots:
   - {fileID: 4245901292917302927}
   - {fileID: 591903573044012306}

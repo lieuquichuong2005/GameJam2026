@@ -10,6 +10,8 @@ public class InventoryItemView : MonoBehaviour
     private InventoryItem data;
     private InventoryService inventory;
     private bool isEmpty = true;
+    public RectTransform Rect => (RectTransform)transform;
+
 
     public void Init(InventoryService service)
     {

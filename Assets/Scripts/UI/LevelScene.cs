@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using Cysharp.Threading.Tasks;
 using EditorAttributes;
 using UnityEngine;
 using UnityEngine.EventSystems;
@@ -12,8 +13,12 @@ public class LevelScene : InjectableMonoBehaviour
 {
     [Inject] private InventoryService inventory;
 
+    [Required] [SerializeField] private Canvas _canvas;
     [Required] [SerializeField] private LevelView _levelView;
     [Required] [SerializeField] private Camera _mainCamera;
+    [Required] [SerializeField] private FlyingItemEffect _flyingItemPrefab;
+    [Required] [SerializeField] private RectTransform _inventoryRoot;
+    [Required] [SerializeField] private InventoryAnimatorUniTask _inventoryPanel;
 
     [SerializeField] private List<InventoryItemView> inventorySlots = new List<InventoryItemView>();
     private readonly List<IEntity> _entities = new();
@@ -50,7 +55,7 @@ public class LevelScene : InjectableMonoBehaviour
         InitInventorySlot(inventory);
 
         _isPlaying = true;
-        
+
         _levelView.EnterRoom("kitchen");
     }
 
@@ -146,5 +151,27 @@ public class LevelScene : InjectableMonoBehaviour
         var position = _mainCamera.ScreenToWorldPoint(scenepoint);
         _ = _levelView.PressOnPosition(position);
         Debug.Log($"Pressed position: {position}");
+    }
+
+    public async UniTask PlayPickupItemEffect(
+        InventoryItem item,
+        Vector3 worldItemPos)
+    {
+        var slot = inventorySlots.Find(s => s.IsEmpty());
+        if (slot == null) return;
+
+        Vector2 startScreen =
+            _mainCamera.WorldToScreenPoint(worldItemPos);
+
+        Vector2 endScreen = _inventoryPanel.transform.position + new Vector3(25, 0, 0);
+
+        var flying = Instantiate(_flyingItemPrefab, _canvas.transform);
+        await flying.Fly(item.icon, startScreen, endScreen);
+
+        Destroy(flying.gameObject);
+
+        _inventoryPanel.OpenInventory();
+
+        inventory.AddItem(item);
     }
 }
