@@ -18,8 +18,8 @@ public enum ItemType
     Iced,
     Water,
     Glass,
-    GlassOfIced,
     GlassOfWater,
+    GlassOfWaterIced,
 }
 
 public class Item : InjectableMonoBehaviour, IItemPickup
@@ -73,8 +73,6 @@ public class Item : InjectableMonoBehaviour, IItemPickup
 
         if (_healthPoints > 0)
             return;
-
-        Debug.Log($"[ItemPickup] Picked up: {_itemToGive.itemId}");
 
         inventoryService.AddItem(_itemToGive);
         collected = true;

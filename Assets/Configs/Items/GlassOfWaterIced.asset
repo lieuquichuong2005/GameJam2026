@@ -10,10 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 03989045b58b7494b8f086f539be9674, type: 3}
-  m_Name: GlassOfIced
+  m_Name: GlassOfWaterIced
   m_EditorClassIdentifier: 
-  itemId: glassoficed
-  itemType: 11
+  itemType: 12
   icon: {fileID: 21300000, guid: aa97bff55c4f9f04f895f000c4529056, type: 3}
   inspectSprite: {fileID: 21300000, guid: aa97bff55c4f9f04f895f000c4529056, type: 3}
   canRotate: 0

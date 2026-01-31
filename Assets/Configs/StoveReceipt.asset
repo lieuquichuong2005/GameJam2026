@@ -12,4 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be681a61cb893754aab6648b75f9d45e, type: 3}
   m_Name: StoveReceipt
   m_EditorClassIdentifier: 
-  requiredItemIds: 0100000004000000030000000800000009000000
+  requiredItemIds: 0100000004000000030000000c000000

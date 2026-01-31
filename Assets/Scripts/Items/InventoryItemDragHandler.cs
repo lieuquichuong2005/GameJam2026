@@ -25,6 +25,8 @@ public class InventoryItemDragHandler : MonoBehaviour,
         ghost = Instantiate(ghostPrefab, canvas.transform);
         ghost.SetSprite(view.GetItem().icon);
         ghost.Follow(eventData.position);
+
+        Debug.Log($"Drag Item {view.GetItem().itemType}");
     }
 
     public void OnDrag(PointerEventData eventData)
@@ -41,8 +43,6 @@ public class InventoryItemDragHandler : MonoBehaviour,
 
         if (!success)
             view.ShowIcon();
-        else
-            view.ClearSlot();
 
         if (ghost != null)
             Destroy(ghost.gameObject);

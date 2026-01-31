@@ -187,6 +187,10 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5042924537795743252, guid: 1f288d7a8663f0e44b23235e64440114, type: 3}
+      propertyPath: _itemMergeDatabase
+      value: 
+      objectReference: {fileID: 11400000, guid: 8d51a26a98592664eb8efefdae23de04, type: 2}
     - target: {fileID: 6002368697183726788, guid: 1f288d7a8663f0e44b23235e64440114, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0

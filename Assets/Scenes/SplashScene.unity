@@ -153,6 +153,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   audioConfig: {fileID: 11400000, guid: f551f95b07d77434d81e05392a9c9e4b, type: 2}
   audioProvider: {fileID: 975868145}
+  mergeDatabase: {fileID: 11400000, guid: 8d51a26a98592664eb8efefdae23de04, type: 2}
 --- !u!4 &975868142
 Transform:
   m_ObjectHideFlags: 0

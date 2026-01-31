@@ -21,6 +21,7 @@ public class LevelScene : InjectableMonoBehaviour
     [Required] [SerializeField] private InventoryAnimatorUniTask _inventoryPanel;
 
     [SerializeField] private Room _firstRoomType;
+    [SerializeField] private ItemMergeDatabase _itemMergeDatabase;
 
     [SerializeField] private List<InventoryItemView> inventorySlots = new List<InventoryItemView>();
     private readonly List<IEntity> _entities = new();
@@ -31,7 +32,6 @@ public class LevelScene : InjectableMonoBehaviour
     public void InitInventorySlot(InventoryService service)
     {
         inventory = service;
-        inventory.OnItemAdded += AddItemToSlot;
     }
 
     private void AddItemToSlot(InventoryItem item)
@@ -46,6 +46,12 @@ public class LevelScene : InjectableMonoBehaviour
         emptySlot.SetItem(item);
     }
 
+    private void RemoveItemFromSlot(InventoryItem item)
+    {
+        var itemSlot = inventorySlots.Find(slot => slot.Data == item);
+        itemSlot.ClearSlot();
+    }
+
     protected override void Awake()
     {
         base.Awake();
@@ -55,6 +61,7 @@ public class LevelScene : InjectableMonoBehaviour
             Services.Register(inventory);
         }
 
+        inventory.SetData(_itemMergeDatabase);
         _lastTime = Time.realtimeSinceStartup;
         InitInventorySlot(inventory);
 
@@ -71,11 +78,38 @@ public class LevelScene : InjectableMonoBehaviour
     private void OnEnable()
     {
         PlayAreaInput.OnClick += OnClicked;
+        inventory.OnInventoryChanged += Rebuild;
+        inventory.OnItemAdded += AddItemToSlot;
+        inventory.OnItemRemoved += RemoveItemFromSlot;
+    }
+
+    private void Rebuild()
+    {
+        ClearAllSlots();
+
+        foreach (var item in inventory.Items)
+            AssignItemToSlot(item);
+    }
+
+    private void ClearAllSlots()
+    {
+        foreach (var slot in inventorySlots)
+            slot.ClearSlot();
+    }
+
+    private void AssignItemToSlot(InventoryItem item)
+    {
+        var slot = inventorySlots.Find(s => s.IsEmpty());
+        if (slot != null)
+            slot.SetItem(item);
     }
 
     private void OnDisable()
     {
         PlayAreaInput.OnClick -= OnClicked;
+        inventory.OnInventoryChanged -= Rebuild;
+        inventory.OnItemAdded -= AddItemToSlot;
+        inventory.OnItemRemoved -= RemoveItemFromSlot;
     }
 
     private void Update()

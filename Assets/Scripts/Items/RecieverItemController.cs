@@ -1,5 +1,7 @@
-    using System;
+using System;
 using System.Collections.Generic;
+using Cysharp.Threading.Tasks;
+using EditorAttributes;
 using UnityEngine;
 
 public class StoveReceiver : MonoBehaviour, IItemDropTarget
@@ -15,6 +17,7 @@ public class StoveReceiver : MonoBehaviour, IItemDropTarget
 
     [Header("Visual")] [SerializeField] private List<VisualObject> ingredientVisuals;
     [SerializeField] private GameObject cookedVisual;
+    [Required] [SerializeField] private GameObject _pieCake;
 
     private HashSet<ItemType> addedItems = new();
     private bool isCooked;
@@ -44,11 +47,9 @@ public class StoveReceiver : MonoBehaviour, IItemDropTarget
         addedItems.Add(item.itemType);
         ShowIngredientVisual(item.itemType);
 
-        Debug.Log($"[STOVE] Added {item.itemId} ({addedItems.Count}/{recipe.requiredItemIds.Count})");
-
         if (addedItems.Count >= recipe.requiredItemIds.Count)
         {
-            Cook();
+            _ = Cook();
         }
     }
 
@@ -58,16 +59,19 @@ public class StoveReceiver : MonoBehaviour, IItemDropTarget
         vo.SetActive(true);
     }
 
-    private void Cook()
+    private async UniTask Cook()
     {
+        foreach (var vo in ingredientVisuals)
+        {
+            vo.Visual.SetActive(false);
+        }
+
         isCooked = true;
         cookedVisual.SetActive(true);
 
-        Debug.Log("[STOVE] Cooking completed!");
+        await UniTask.Delay(2000);
 
-        // TODO:
-        // QuestService.CompleteStep(...)
-        // SoundManager.Play("cook")
-        // Animation
+        cookedVisual.SetActive(false);
+        _pieCake.SetActive(true);
     }
 }
