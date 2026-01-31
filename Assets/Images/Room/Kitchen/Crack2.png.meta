@@ -1,10 +1,13 @@
 fileFormatVersion: 2
-guid: 92560838b8f5a49439f47aad08dafcc8
+guid: cdf9722c13ba1f34cb13a05b4e09a83f
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -1981997139514376880
-    second: diary_0
+      213: -8347593149249380806
+    second: Crack2_0
+  - first:
+      213: -3387916189016140701
+    second: Crack2_1
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -46,7 +49,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -126,13 +129,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: diary_0
+      name: Crack2_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 53
-        width: 512
-        height: 406
+        x: 6
+        y: 11
+        width: 15
+        height: 11
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -141,8 +144,30 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 05db7694a188e74e0800000000000000
-      internalID: -1981997139514376880
+      spriteID: a3e91891244672c80800000000000000
+      internalID: -8347593149249380806
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Crack2_1
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 14
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 364d5e01d24bbf0d0800000000000000
+      internalID: -3387916189016140701
       vertices: []
       indices: 
       edges: []
@@ -151,7 +176,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 5e97eb03825dee720800000000000000
+    spriteID: 
     internalID: 0
     vertices: []
     indices: 
@@ -161,7 +186,8 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      diary_0: -1981997139514376880
+      Crack2_0: -8347593149249380806
+      Crack2_1: -3387916189016140701
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

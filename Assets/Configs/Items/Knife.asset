@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 03989045b58b7494b8f086f539be9674, type: 3}
-  m_Name: Diary
+  m_Name: Knife
   m_EditorClassIdentifier: 
-  itemId: diary
-  icon: {fileID: 21300000, guid: 92560838b8f5a49439f47aad08dafcc8, type: 3}
-  inspectSprite: {fileID: 21300000, guid: 92560838b8f5a49439f47aad08dafcc8, type: 3}
+  itemId: knife
+  icon: {fileID: 21300000, guid: 6a31c4d0e4fde1b43a8643881f24cf27, type: 3}
+  inspectSprite: {fileID: 21300000, guid: 6a31c4d0e4fde1b43a8643881f24cf27, type: 3}
   canRotate: 0

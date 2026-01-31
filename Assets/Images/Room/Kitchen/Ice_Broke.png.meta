@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 75eb798e09f230c4f863b1860159a248
+guid: c5f002f9c230e1b4c9094154aba413a2
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 5856981904466133357
-    second: battery_0
+      213: 6481053689438913091
+    second: Ice_Broke_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -46,7 +46,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -126,13 +126,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: battery_0
+      name: Ice_Broke_0
       rect:
         serializedVersion: 2
-        x: 104
+        x: 0
         y: 0
-        width: 304
-        height: 512
+        width: 87
+        height: 34
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -141,8 +141,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: d61489fa20e284150800000000000000
-      internalID: 5856981904466133357
+      spriteID: 342cd311ef351f950800000000000000
+      internalID: 6481053689438913091
       vertices: []
       indices: 
       edges: []
@@ -151,7 +151,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 5e97eb03825dee720800000000000000
+    spriteID: 
     internalID: 0
     vertices: []
     indices: 
@@ -161,7 +161,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      battery_0: 5856981904466133357
+      Ice_Broke_0: 6481053689438913091
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
