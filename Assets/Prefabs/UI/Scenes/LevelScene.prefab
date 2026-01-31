@@ -385,8 +385,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   backpackButton: {fileID: 862323598070899902}
   _backpackIcon: {fileID: 7740396808160259822}
+  _backpack: {fileID: 199802842786858322}
   _slotsContainer: {fileID: 3412372968864984960}
-  _slots: []
+  _slots:
+  - {fileID: 8279494263187798259}
+  - {fileID: 4628585208849300334}
+  - {fileID: 4994522182850414336}
+  - {fileID: 6002368697183726788}
+  - {fileID: 1389322298161391972}
   animationDuration: 0.3
   slotDelay: 50
   easeCurve:
@@ -416,6 +422,9 @@ MonoBehaviour:
   closedPosition: {x: 0, y: 0}
   slotSpacing: 100
   useRotation: 0
+  _backpackSprites:
+  - {fileID: 21300000, guid: 119d2a7c5e0a15e4785d3a5fb4f71fed, type: 3}
+  - {fileID: 21300000, guid: a82bc2c730c50dc45a01994ac0f9c341, type: 3}
   rotationAmount: 360
 --- !u!1 &3003162928398253828
 GameObject:
@@ -1900,11 +1909,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1718622983376397783, guid: 0337a9c1d132ef84b814914e74c14131, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: -6.03
       objectReference: {fileID: 0}
     - target: {fileID: 1718622983376397783, guid: 0337a9c1d132ef84b814914e74c14131, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 4.05
+      value: -0.56
       objectReference: {fileID: 0}
     - target: {fileID: 1718622983376397783, guid: 0337a9c1d132ef84b814914e74c14131, type: 3}
       propertyPath: m_LocalPosition.z

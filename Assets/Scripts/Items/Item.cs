@@ -16,6 +16,10 @@ public enum ItemType
     Diary,
     AppleJam,
     Iced,
+    Water,
+    Glass,
+    GlassOfIced,
+    GlassOfWater,
 }
 
 public class Item : InjectableMonoBehaviour, IItemPickup
@@ -26,6 +30,13 @@ public class Item : InjectableMonoBehaviour, IItemPickup
     [Required] [SerializeField] private Collider2D _collider2d;
 
     [Inject] private InventoryService inventoryService;
+
+    [Header("Interaction")] [SerializeField]
+    private bool _requirePlayerNear = true;
+
+    [SerializeField] private float _interactDistance = 0.3f;
+
+    [SerializeField] private int _healthPoints = 1;
 
     private bool collected = false;
 
@@ -40,7 +51,12 @@ public class Item : InjectableMonoBehaviour, IItemPickup
     }
 
     public Transform Transform => transform;
-    public float InteractDistance => 0f;
+
+    /// ⭐ QUAN TRỌNG
+    public bool RequirePlayerNear => _requirePlayerNear;
+
+    public float InteractDistance => _interactDistance;
+
     public ItemType ItemType => _itemType;
 
     public bool CanInteract()
@@ -51,6 +67,11 @@ public class Item : InjectableMonoBehaviour, IItemPickup
     public void Interact()
     {
         if (!CanInteract())
+            return;
+
+        _healthPoints--;
+
+        if (_healthPoints > 0)
             return;
 
         Debug.Log($"[ItemPickup] Picked up: {_itemToGive.itemId}");

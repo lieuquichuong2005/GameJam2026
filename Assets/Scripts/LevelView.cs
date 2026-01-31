@@ -48,22 +48,25 @@ public class LevelView : InjectableMonoBehaviour, IEntity
         }
 
         if (hit.collider != null &&
-            hit.collider.TryGetComponent<IItemPickup>(out var itemPickup))
+            hit.collider.TryGetComponent<Item>(out var item))
         {
-            float itemX = itemPickup.Transform.position.x;
-
-            if (player.ReachedX(itemX))
+            if (!item.RequirePlayerNear)
             {
-                HandleItemPickup(itemPickup);
+                item.Interact();
+                return;
+            }
+
+            float itemX = item.Transform.position.x;
+
+            if (player.ReachedX(itemX, item.InteractDistance))
+            {
+                item.Interact();
             }
             else
             {
-                pendingItemPickup = itemPickup;
-                pendingInteractable = null;
-
+                pendingItemPickup = item;
                 moveTargetX = itemX;
                 hasMoveTarget = true;
-
                 player.MoveToX(moveTargetX);
             }
 
@@ -128,7 +131,7 @@ public class LevelView : InjectableMonoBehaviour, IEntity
 
         Destroy(itemPickup.Transform.gameObject);
     }
-    
+
     /// <summary>
     /// Xử lý tương tác với object - CẦN ĐI LẠI GẦN
     /// </summary>

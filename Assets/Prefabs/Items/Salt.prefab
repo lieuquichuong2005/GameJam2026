@@ -147,6 +147,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6802124c979b0fe44b94b767a634d2bd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _itemType: 1
   _itemToGive: {fileID: 11400000, guid: 102eb0b8e360c86419211a37e6335fad, type: 2}
   _spriteRenderer: {fileID: 4389889440476376160}
   _collider2d: {fileID: 4109097652995386367}
+  _healthPoints: 0

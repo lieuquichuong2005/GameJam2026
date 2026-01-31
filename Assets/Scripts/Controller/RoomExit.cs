@@ -6,6 +6,7 @@ public class RoomExit : MonoBehaviour, IInteractable
 
     public Transform Transform { get; }
     public float InteractDistance { get; }
+    public bool RequirePlayerNear { get; }
 
     public bool CanInteract()
     {
