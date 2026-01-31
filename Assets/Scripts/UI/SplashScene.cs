@@ -13,6 +13,8 @@ public class SplashScene : MonoBehaviour
 
     private void Awake()
     {
+        Application.targetFrameRate = 60;
+        
         _cts = new CancellationTokenSource();
         RunSplashAsync(_cts.Token).Forget();
     }
