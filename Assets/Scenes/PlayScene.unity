@@ -119,7 +119,7 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
---- !u!1001 &3195396817490854337
+--- !u!1001 &1880453665
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -145,7 +145,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3003162928398253828, guid: 1f288d7a8663f0e44b23235e64440114, type: 3}
       propertyPath: m_Name
-      value: PlayScene
+      value: LevelScene
       objectReference: {fileID: 0}
     - target: {fileID: 3412372968864984960, guid: 1f288d7a8663f0e44b23235e64440114, type: 3}
       propertyPath: m_SizeDelta.x
@@ -187,10 +187,6 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 5042924537795743252, guid: 1f288d7a8663f0e44b23235e64440114, type: 3}
-      propertyPath: _itemMergeDatabase
-      value: 
-      objectReference: {fileID: 11400000, guid: 8d51a26a98592664eb8efefdae23de04, type: 2}
     - target: {fileID: 6002368697183726788, guid: 1f288d7a8663f0e44b23235e64440114, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -210,10 +206,6 @@ PrefabInstance:
     - target: {fileID: 6503757181938452605, guid: 1f288d7a8663f0e44b23235e64440114, type: 3}
       propertyPath: m_Mesh
       value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 6772529699406393179, guid: 1f288d7a8663f0e44b23235e64440114, type: 3}
-      propertyPath: m_IsActive
-      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8279494263187798259, guid: 1f288d7a8663f0e44b23235e64440114, type: 3}
       propertyPath: m_AnchorMax.y
@@ -272,7 +264,8 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects: []
+    m_RemovedGameObjects:
+    - {fileID: 2629183201360720749, guid: 1f288d7a8663f0e44b23235e64440114, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1f288d7a8663f0e44b23235e64440114, type: 3}
@@ -280,4 +273,4 @@ PrefabInstance:
 SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
-  - {fileID: 3195396817490854337}
+  - {fileID: 1880453665}
