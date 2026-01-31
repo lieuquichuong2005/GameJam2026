@@ -207,6 +207,10 @@ PrefabInstance:
       propertyPath: m_Mesh
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 6772529699406393179, guid: 1f288d7a8663f0e44b23235e64440114, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8279494263187798259, guid: 1f288d7a8663f0e44b23235e64440114, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0

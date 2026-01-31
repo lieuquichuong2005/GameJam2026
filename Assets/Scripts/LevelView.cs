@@ -31,6 +31,24 @@ public class LevelView : InjectableMonoBehaviour, IEntity
             inventoryService = new InventoryService();
             Services.Register(inventoryService);
         }
+
+        LevelEventBus.OnRequestChangeRoom += HandleChangeRoom;
+    }
+
+    private void OnDestroy()
+    {
+        LevelEventBus.OnRequestChangeRoom -= HandleChangeRoom;
+    }
+
+    private void HandleChangeRoom(string roomId, Vector2 spawnPos)
+    {
+        EnterRoom(roomId);
+
+        player.transform.position = new Vector3(
+            spawnPos.x,
+            player.transform.position.y,
+            player.transform.position.z
+        );
     }
 
     public async UniTask PressOnPosition(Vector2 worldPos)
