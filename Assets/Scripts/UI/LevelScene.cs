@@ -20,6 +20,8 @@ public class LevelScene : InjectableMonoBehaviour
     [Required] [SerializeField] private RectTransform _inventoryRoot;
     [Required] [SerializeField] private InventoryAnimatorUniTask _inventoryPanel;
 
+    [SerializeField] private Room _firstRoomType;
+
     [SerializeField] private List<InventoryItemView> inventorySlots = new List<InventoryItemView>();
     private readonly List<IEntity> _entities = new();
     private bool _paused;
@@ -63,7 +65,7 @@ public class LevelScene : InjectableMonoBehaviour
 
         _isPlaying = true;
 
-        _levelView.EnterRoom("kitchen");
+        _levelView.EnterRoom(_firstRoomType);
     }
 
     private void OnEnable()

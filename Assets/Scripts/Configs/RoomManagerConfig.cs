@@ -6,27 +6,27 @@ public class RoomDatabase : ScriptableObject
 {
     [SerializeField] private List<RoomConfig> rooms;
 
-    private Dictionary<string, RoomView> _lookup;
+    private Dictionary<Room, RoomView> _lookup;
 
-    public RoomView GetRoomPrefab(string roomId)
+    public RoomView GetRoomPrefab(Room roomType)
     {
         _lookup ??= BuildLookup();
 
-        if (_lookup.TryGetValue(roomId, out var prefab))
+        if (_lookup.TryGetValue(roomType, out var prefab))
             return prefab;
 
-        Debug.LogError($"Room not found: {roomId}");
+        Debug.LogError($"Room not found: {roomType}");
         return null;
     }
 
-    private Dictionary<string, RoomView> BuildLookup()
+    private Dictionary<Room, RoomView> BuildLookup()
     {
-        var dict = new Dictionary<string, RoomView>();
+        var dict = new Dictionary<Room, RoomView>();
 
         foreach (var r in rooms)
         {
-            if (!dict.ContainsKey(r.roomId))
-                dict.Add(r.roomId, r.roomView);
+            if (!dict.ContainsKey(r.roomType))
+                dict.Add(r.roomType, r.roomView);
         }
 
         return dict;

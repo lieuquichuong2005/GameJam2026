@@ -2,12 +2,12 @@ using UnityEngine;
 
 public class DoorInteractable : MonoBehaviour, IInteractable
 {
-    [Header("Interaction")]
-    [SerializeField] private bool _requirePlayerNear = true;
+    [Header("Interaction")] [SerializeField]
+    private bool _requirePlayerNear = true;
+
     [SerializeField] private float _interactDistance = 0.5f;
 
-    [Header("Room")]
-    [SerializeField] private string _targetRoomId;
+    [Header("Room")] [SerializeField] private Room _targetRoomType;
     [SerializeField] private Vector2 _spawnPositionInTargetRoom;
 
     public Transform Transform => transform;
@@ -16,15 +16,15 @@ public class DoorInteractable : MonoBehaviour, IInteractable
 
     public bool CanInteract()
     {
-        return !string.IsNullOrEmpty(_targetRoomId);
+        return true;
     }
 
     public void Interact()
     {
-        Debug.Log($"[DOOR] Go to room: {_targetRoomId}");
+        Debug.Log($"[DOOR] Go to room: {_targetRoomType}");
 
         LevelEventBus.RequestChangeRoom(
-            _targetRoomId,
+            _targetRoomType,
             _spawnPositionInTargetRoom
         );
     }

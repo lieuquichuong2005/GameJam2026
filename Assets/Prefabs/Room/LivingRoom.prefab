@@ -777,7 +777,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _requirePlayerNear: 1
   _interactDistance: 0.5
-  _targetRoomId: kitchen
+  _targetRoomType: 1
   _spawnPositionInTargetRoom: {x: 5.38, y: -1}
 --- !u!1 &8662093849042570804
 GameObject:

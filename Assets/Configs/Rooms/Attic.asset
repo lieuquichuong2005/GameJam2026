@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cfa05df2015f74844ac4f8c994b16609, type: 3}
   m_Name: Attic
   m_EditorClassIdentifier: Assembly-CSharp::RoomConfig
-  roomId: attic
+  roomType: 2
   background: {fileID: 1208040086343421634, guid: ad463bafbb7493e4b97f360bdc07e181, type: 3}
   fullroom: {fileID: 1208040086343421634, guid: ad463bafbb7493e4b97f360bdc07e181, type: 3}
   roomPrefab: {fileID: 8182556048622382546, guid: d9836281acd13bf47af185a8c5836543, type: 3}

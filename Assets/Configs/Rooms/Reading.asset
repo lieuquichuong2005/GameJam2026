@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cfa05df2015f74844ac4f8c994b16609, type: 3}
   m_Name: Reading
   m_EditorClassIdentifier: Assembly-CSharp::RoomConfig
-  roomId: reading
+  roomType: 3
   background: {fileID: 5119113001926800140, guid: ef8b5dcfd9a430341a1168f68436eaad, type: 3}
   fullroom: {fileID: 5119113001926800140, guid: ef8b5dcfd9a430341a1168f68436eaad, type: 3}
   roomPrefab: {fileID: 2134519564241245684, guid: 723bc9e2c0152834399e953d1ed85451, type: 3}

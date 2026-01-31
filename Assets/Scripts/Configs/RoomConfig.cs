@@ -11,7 +11,7 @@ public enum Room
 [CreateAssetMenu(menuName = "Game/Room Data")]
 public class RoomConfig : ScriptableObject
 {
-    public string roomId;
+    public Room roomType;
     public Sprite background;
     public Sprite fullroom;
     public GameObject roomPrefab;

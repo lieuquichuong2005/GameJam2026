@@ -40,9 +40,9 @@ public class LevelView : InjectableMonoBehaviour, IEntity
         LevelEventBus.OnRequestChangeRoom -= HandleChangeRoom;
     }
 
-    private void HandleChangeRoom(string roomId, Vector2 spawnPos)
+    private void HandleChangeRoom(Room roomType, Vector2 spawnPos)
     {
-        EnterRoom(roomId);
+        EnterRoom(roomType);
 
         player.transform.position = new Vector3(
             spawnPos.x,
@@ -126,11 +126,11 @@ public class LevelView : InjectableMonoBehaviour, IEntity
         roomManager.EnterRoom(roomPrefab, gameState);
     }
 
-    public void EnterRoom(string roomId)
+    public void EnterRoom(Room roomType)
     {
-        var prefab = roomDatabase.GetRoomPrefab(roomId);
+        var prefab = roomDatabase.GetRoomPrefab(roomType);
         roomManager.EnterRoom(prefab, gameState);
-        gameState.currentRoomId = roomId;
+        gameState.currentRoomType = roomType;
     }
 
     /// <summary>

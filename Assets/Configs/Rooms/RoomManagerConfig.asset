@@ -13,5 +13,7 @@ MonoBehaviour:
   m_Name: RoomManagerConfig
   m_EditorClassIdentifier: 
   rooms:
+  - {fileID: 11400000, guid: 9366efe654801e442806237a85a107ee, type: 2}
   - {fileID: 11400000, guid: 2d227e7f45d7e5d4daf5ff7f87defd15, type: 2}
   - {fileID: 11400000, guid: 6069ff8ce4214e84195efa3b3008973c, type: 2}
+  - {fileID: 11400000, guid: 1e06d83505b6c4b4f80f635af06a1b0b, type: 2}
