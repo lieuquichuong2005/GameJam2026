@@ -8,16 +8,23 @@ public class PlayerController : MonoBehaviour, IEntity
     [SerializeField] private LayerMask groundMask;
     [SerializeField] private float groundCheckDistance = 5f;
 
+    private string Idle = "Idle";
+    private string Walk = "Walk";
+
     [Required] [SerializeField] private SkeletonAnimation _character;
-    
-private bool _isFacingRight = true;
+
+    private bool _isFacingRight = true;
     private float targetX;
     private bool isMoving;
+    private string _currentAnim;
 
     public void MoveToX(float x)
     {
         targetX = x;
         isMoving = true;
+
+        UpdateFacing(x);
+        PlayAnim(Walk, true);
 
         Debug.Log($"[PLAYER] Move to X = {x}");
     }
@@ -31,6 +38,8 @@ private bool _isFacingRight = true;
     {
         if (isMoving)
         {
+            UpdateFacing(targetX);
+
             float newX = Mathf.MoveTowards(
                 transform.position.x,
                 targetX,
@@ -39,11 +48,19 @@ private bool _isFacingRight = true;
 
             transform.position = new Vector2(newX, transform.position.y);
 
+            PlayAnim(Walk, true);
+
             if (ReachedX())
             {
                 isMoving = false;
+                PlayAnim(Idle, true);
+
                 Debug.Log("[PLAYER] Reached X target");
             }
+        }
+        else
+        {
+            PlayAnim(Idle, true);
         }
 
         SnapToGround();
@@ -51,7 +68,7 @@ private bool _isFacingRight = true;
 
     private void SnapToGround()
     {
-        Vector2 origin = new Vector2(transform.position.x, transform.position.y + 1f);
+        Vector2 origin = new Vector2(transform.position.x, transform.position.y + 0.5f);
 
         RaycastHit2D hit = Physics2D.Raycast(
             origin,
@@ -60,12 +77,36 @@ private bool _isFacingRight = true;
             groundMask
         );
 
-        if (hit.collider != null)
+        if (hit.collider == null) return;
+
+        float distance = origin.y - hit.point.y;
+
+        if (distance > 0f && distance < 0.3f)
         {
             transform.position = new Vector2(
                 transform.position.x,
                 hit.point.y
             );
+        }
+    }
+
+    private void PlayAnim(string animName, bool loop)
+    {
+        if (_currentAnim == animName) return;
+
+        _character.AnimationState.SetAnimation(0, animName, loop);
+        _currentAnim = animName;
+    }
+
+    private void UpdateFacing(float targetX)
+    {
+        bool shouldFaceRight = targetX > transform.position.x;
+
+        if (_isFacingRight != shouldFaceRight)
+        {
+            _isFacingRight = shouldFaceRight;
+
+            _character.Skeleton.ScaleX = _isFacingRight ? 1 : -1;
         }
     }
 }
