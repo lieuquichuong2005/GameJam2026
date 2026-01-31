@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: b06de1c6a83e8694e8326e7dd05bdd6f
+guid: 40472b52ccf8c2b4581357355c9ab864
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 433411730492351356
-    second: BG_Living-_0
+      213: 1694913177206695654
+    second: Key_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -75,7 +75,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -126,13 +126,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: BG_Living-_0
+      name: Key_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
-        width: 1920
-        height: 1080
+        x: 40
+        y: 31
+        width: 228
+        height: 246
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -141,8 +141,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: c73eb7d2ca9c30600800000000000000
-      internalID: 433411730492351356
+      spriteID: 6e6a88cfd8a858710800000000000000
+      internalID: 1694913177206695654
       vertices: []
       indices: 
       edges: []
@@ -161,7 +161,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      BG_Living-_0: 433411730492351356
+      Key_0: 1694913177206695654
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

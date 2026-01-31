@@ -43,7 +43,7 @@ public class LevelScene : InjectableMonoBehaviour
             Services.Register(inventory);
         }
 
-        inventory.SetData(_itemMergeDatabase);
+        // inventory.SetData(_itemMergeDatabase);
         _lastTime = Time.realtimeSinceStartup;
         InitInventorySlot(inventory);
 

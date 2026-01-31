@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: b06de1c6a83e8694e8326e7dd05bdd6f
+guid: c3194a8945bf04a469e46fc5e273d0c7
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 433411730492351356
-    second: BG_Living-_0
+      213: -2021790331581907103
+    second: BG_Kitchen-_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -126,7 +126,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: BG_Living-_0
+      name: BG_Kitchen-_0
       rect:
         serializedVersion: 2
         x: 0
@@ -141,8 +141,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: c73eb7d2ca9c30600800000000000000
-      internalID: 433411730492351356
+      spriteID: 16fbdb3c76821f3e0800000000000000
+      internalID: -2021790331581907103
       vertices: []
       indices: 
       edges: []
@@ -161,7 +161,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      BG_Living-_0: 433411730492351356
+      BG_Kitchen-_0: -2021790331581907103
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

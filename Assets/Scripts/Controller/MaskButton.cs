@@ -29,6 +29,8 @@ public class MaskButton : MonoBehaviour, IEntity
     private bool _isShowingBloodMask;
     private Vector2 _eyeBaseLocalPos;
 
+    public bool IsShowingBloodMask => _isShowingBloodMask;
+    public static Action<bool> IsShowingBloodMaskAction;
 
     private void Awake()
     {
@@ -100,6 +102,8 @@ public class MaskButton : MonoBehaviour, IEntity
             _isShowingBloodMask = !_isShowingBloodMask;
             _bloodLayer.SetActive(_isShowingBloodMask);
         }
+
+        IsShowingBloodMaskAction?.Invoke(_isShowingBloodMask);
     }
 
     private async UniTask PlayAnimChangeMask()
