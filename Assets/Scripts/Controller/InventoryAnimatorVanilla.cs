@@ -121,6 +121,7 @@ public class InventoryAnimatorUniTask : MonoBehaviour
     {
         isAnimating = true;
         isOpen = true;
+        _backpack.sprite = isOpen ? _backpackSprites[0] : _backpackSprites[1];
 
         if (!layoutInitialized)
         {
@@ -156,7 +157,6 @@ public class InventoryAnimatorUniTask : MonoBehaviour
             _slots.Count * slotDelay + Mathf.RoundToInt(animationDuration * 1000),
             cancellationToken: token
         );
-        _backpack.sprite = isOpen ? _backpackSprites[0] : _backpackSprites[1];
 
         isAnimating = false;
         LayoutRebuilder.ForceRebuildLayoutImmediate((RectTransform)_slotsContainer.transform);
