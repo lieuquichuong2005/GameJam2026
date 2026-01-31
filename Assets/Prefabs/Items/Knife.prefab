@@ -10,8 +10,8 @@ GameObject:
   m_Component:
   - component: {fileID: 8168451057463272237}
   - component: {fileID: 260819436968181143}
-  - component: {fileID: 4648318677782304119}
   - component: {fileID: 5769601040003286898}
+  - component: {fileID: 8956320102349918105}
   m_Layer: 0
   m_Name: Knife
   m_TagString: Untagged
@@ -89,20 +89,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &4648318677782304119
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8517721790720769934}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 34428c20e9b17a34fa37b6d5ed1b9df4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  itemToGive: {fileID: 11400000, guid: d7832054b1c79054d9eba7fb75bcae14, type: 2}
-  spriteRenderer: {fileID: 260819436968181143}
 --- !u!70 &5769601040003286898
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -133,10 +119,24 @@ CapsuleCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
   m_Offset: {x: 0, y: 0}
   m_Size: {x: 1, y: 5}
   m_Direction: 0
+--- !u!114 &8956320102349918105
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8517721790720769934}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6802124c979b0fe44b94b767a634d2bd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemToGive: {fileID: 11400000, guid: d7832054b1c79054d9eba7fb75bcae14, type: 2}
+  spriteRenderer: {fileID: 260819436968181143}

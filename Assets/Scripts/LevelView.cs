@@ -18,6 +18,11 @@ public class LevelView : InjectableMonoBehaviour, IEntity
     private float moveTargetX;
     private IInteractable pendingInteractable;
 
+    [SerializeField] private RoomDatabase roomDatabase;
+    [SerializeField] private RoomManager roomManager;
+    [SerializeField] private GameState gameState;
+
+
     protected override void Awake()
     {
         // base.Awake(); // ✅ BẮT BUỘC để injection hoạt động
@@ -28,8 +33,6 @@ public class LevelView : InjectableMonoBehaviour, IEntity
 
     public async UniTask PressOnPosition(Vector2 worldPos)
     {
-        Debug.Log($"[LEVEL] Click at {worldPos}");
-
         var hit = Physics2D.Raycast(worldPos, Vector2.zero);
 
         if (inventory != null &&
@@ -38,7 +41,7 @@ public class LevelView : InjectableMonoBehaviour, IEntity
             hit.collider.TryGetComponent<IItemReceiver>(out var receiver))
         {
             receiver.UseItem(inventory.SelectedItem);
-            inventory.Select(null); // deselect
+            inventory.Select(null);
             return;
         }
 
@@ -78,6 +81,18 @@ public class LevelView : InjectableMonoBehaviour, IEntity
         player.MoveToX(moveTargetX);
     }
 
+    public void ChangeRoom(RoomView roomPrefab)
+    {
+        roomManager.EnterRoom(roomPrefab, gameState);
+    }
+
+    public void EnterRoom(string roomId)
+    {
+        var prefab = roomDatabase.GetRoomPrefab(roomId);
+        roomManager.EnterRoom(prefab, gameState);
+        gameState.currentRoomId = roomId;
+    }
+
     /// <summary>
     /// Xử lý nhặt item - KHÔNG CẦN ĐI LẠI
     /// </summary>
@@ -91,7 +106,6 @@ public class LevelView : InjectableMonoBehaviour, IEntity
             return;
         }
 
-        // Nhặt ngay lập tức
         itemPickup.Interact();
     }
 

@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 2755691573457658879}
   - component: {fileID: 1217153516292008844}
   - component: {fileID: 5236999888382863767}
-  - component: {fileID: 7066728440748931158}
+  - component: {fileID: 2533459556341634176}
   m_Layer: 0
   m_Name: Flour
   m_TagString: Untagged
@@ -119,7 +119,7 @@ BoxCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
@@ -135,7 +135,7 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 3, y: 4}
   m_EdgeRadius: 0
---- !u!114 &7066728440748931158
+--- !u!114 &2533459556341634176
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -144,7 +144,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 786727886202989487}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 34428c20e9b17a34fa37b6d5ed1b9df4, type: 3}
+  m_Script: {fileID: 11500000, guid: 6802124c979b0fe44b94b767a634d2bd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   itemToGive: {fileID: 11400000, guid: 145c1266f9d041643a0c66d5f6a97129, type: 2}

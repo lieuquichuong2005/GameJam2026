@@ -50,6 +50,8 @@ public class LevelScene : InjectableMonoBehaviour
         InitInventorySlot(inventory);
 
         _isPlaying = true;
+        
+        _levelView.EnterRoom("kitchen");
     }
 
     private void OnEnable()

@@ -15,3 +15,5 @@ MonoBehaviour:
   roomId: kitchen
   background: {fileID: 21300000, guid: e5ba54275fb60e04b80b72606b72e06c, type: 3}
   fullroom: {fileID: 21300000, guid: e5ba54275fb60e04b80b72606b72e06c, type: 3}
+  roomPrefab: {fileID: 430029137426307885, guid: 4c91aa7da3b7b754ebda1215dad86e98, type: 3}
+  roomView: {fileID: 2347791711526879288, guid: 4c91aa7da3b7b754ebda1215dad86e98, type: 3}

@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 4377346437572896057}
   - component: {fileID: 4389889440476376160}
   - component: {fileID: 4109097652995386367}
-  - component: {fileID: 4519326940382249586}
+  - component: {fileID: 330055821447984723}
   m_Layer: 0
   m_Name: Salt
   m_TagString: Untagged
@@ -119,7 +119,7 @@ BoxCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
@@ -135,7 +135,7 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 2, y: 2}
   m_EdgeRadius: 0
---- !u!114 &4519326940382249586
+--- !u!114 &330055821447984723
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -144,7 +144,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 5597962690440195335}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 34428c20e9b17a34fa37b6d5ed1b9df4, type: 3}
+  m_Script: {fileID: 11500000, guid: 6802124c979b0fe44b94b767a634d2bd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   itemToGive: {fileID: 11400000, guid: 102eb0b8e360c86419211a37e6335fad, type: 2}
