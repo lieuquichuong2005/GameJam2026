@@ -4,7 +4,7 @@ using Cysharp.Threading.Tasks;
 using EditorAttributes;
 using UnityEngine;
 
-public class StoveReceiver : MonoBehaviour, IItemDropTarget
+public class StoveReceiver : InjectableMonoBehaviour, IItemDropTarget
 {
     [Serializable]
     public class VisualObject
@@ -18,13 +18,19 @@ public class StoveReceiver : MonoBehaviour, IItemDropTarget
     [Header("Visual")] [SerializeField] private List<VisualObject> ingredientVisuals;
     [SerializeField] private GameObject cookedVisual;
     [Required] [SerializeField] private GameObject _pieCake;
-
+    private InventoryService _inventoryService;
     private HashSet<ItemType> addedItems = new();
     private bool isCooked;
     Dictionary<ItemType, GameObject> ingredients = new Dictionary<ItemType, GameObject>();
 
-    private void Awake()
+    protected override void Awake()
     {
+        base.Awake();
+        if (_inventoryService == null)
+        {
+            _inventoryService = Services.Get<InventoryService>();
+        }
+
         ingredients = new Dictionary<ItemType, GameObject>();
         foreach (var vo in ingredientVisuals)
         {
@@ -46,6 +52,7 @@ public class StoveReceiver : MonoBehaviour, IItemDropTarget
 
         addedItems.Add(item.itemType);
         ShowIngredientVisual(item.itemType);
+        _inventoryService.RemoveItem(item);
 
         if (addedItems.Count >= recipe.requiredItemIds.Count)
         {

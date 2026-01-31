@@ -92,4 +92,21 @@ public class InventoryService
             ? mergeDatabase.GetResult(a, b)
             : null;
     }
+
+    public bool TryMerge(InventoryItem a, InventoryItem b)
+    {
+        if (!CanMerge(a, b))
+            return false;
+
+        var result = mergeDatabase.GetResult(a, b);
+        if (result == null)
+            return false;
+
+        items.Remove(a);
+        items.Remove(b);
+        items.Add(result);
+
+        OnInventoryChanged?.Invoke();
+        return true;
+    }
 }

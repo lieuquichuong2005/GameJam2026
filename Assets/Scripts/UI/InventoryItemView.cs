@@ -107,14 +107,6 @@ public class InventoryItemView : MonoBehaviour, IItemDropTarget
 
     public void OnItemDropped(InventoryItem draggedItem)
     {
-        Debug.Log($"Dragged item {draggedItem.itemType}, Idle Item {data.itemType}");
-        var result = inventory.Merge(draggedItem, data);
-
-        if (result != null)
-        {
-            inventory.RemoveItem(draggedItem);
-            inventory.RemoveItem(data);
-            inventory.AddItem(result);
-        }
+        inventory.TryMerge(draggedItem, data);
     }
 }

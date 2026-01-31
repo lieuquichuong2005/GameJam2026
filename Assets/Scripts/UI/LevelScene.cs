@@ -34,24 +34,6 @@ public class LevelScene : InjectableMonoBehaviour
         inventory = service;
     }
 
-    private void AddItemToSlot(InventoryItem item)
-    {
-        var emptySlot = inventorySlots.Find(slot => slot.IsEmpty());
-
-        if (emptySlot == null)
-        {
-            return;
-        }
-
-        emptySlot.SetItem(item);
-    }
-
-    private void RemoveItemFromSlot(InventoryItem item)
-    {
-        var itemSlot = inventorySlots.Find(slot => slot.Data == item);
-        itemSlot.ClearSlot();
-    }
-
     protected override void Awake()
     {
         base.Awake();
@@ -79,8 +61,6 @@ public class LevelScene : InjectableMonoBehaviour
     {
         PlayAreaInput.OnClick += OnClicked;
         inventory.OnInventoryChanged += Rebuild;
-        inventory.OnItemAdded += AddItemToSlot;
-        inventory.OnItemRemoved += RemoveItemFromSlot;
     }
 
     private void Rebuild()
@@ -108,8 +88,6 @@ public class LevelScene : InjectableMonoBehaviour
     {
         PlayAreaInput.OnClick -= OnClicked;
         inventory.OnInventoryChanged -= Rebuild;
-        inventory.OnItemAdded -= AddItemToSlot;
-        inventory.OnItemRemoved -= RemoveItemFromSlot;
     }
 
     private void Update()
@@ -207,8 +185,7 @@ public class LevelScene : InjectableMonoBehaviour
 
         Destroy(flying.gameObject);
 
-        _inventoryPanel.OpenInventory();
-
         inventory.AddItem(item);
+        _inventoryPanel.OpenInventory();
     }
 }
