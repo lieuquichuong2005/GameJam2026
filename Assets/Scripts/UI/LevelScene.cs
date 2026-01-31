@@ -1,22 +1,52 @@
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 /// <summary>
-/// Quán Lí UI. Không Quản Lí CoreGaneplay
+/// Quản Lí UI. Không Quản Lí CoreGameplay
 /// </summary>
-public class LevelScene : MonoBehaviour
+public class LevelScene : InjectableMonoBehaviour
 {
-    [SerializeField] private LevelView levelView;
-    [SerializeField] private Camera mainCamera;
+    [Inject] private InventoryService inventory;
 
+    [SerializeField] private LevelView _levelView;
+    [SerializeField] private Camera _mainCamera;
+
+    [SerializeField] private List<InventoryItemView> inventorySlots = new List<InventoryItemView>();
     private readonly List<IEntity> _entities = new();
     private bool _paused;
-
     private float _lastTime;
+    private bool _isPlaying;
 
-    private void Awake()
+    public void InitInventorySlot(InventoryService service)
     {
+        inventory = service;
+        inventory.OnItemAdded += AddItemToSlot;
+    }
+
+    private void AddItemToSlot(InventoryItem item)
+    {
+        var emptySlot = inventorySlots.Find(slot => slot.IsEmpty());
+
+        if (emptySlot == null)
+        {
+            Debug.LogWarning("Inventory full - no empty slots");
+            return;
+        }
+
+        emptySlot.SetItem(item);
+        Debug.Log($"Added {item.itemId} to inventory slot");
+    }
+
+    protected override void Awake()
+    {
+        // base.Awake();
+        inventory = new InventoryService();
+        Services.Register(inventory);
         _lastTime = Time.realtimeSinceStartup;
+        InitInventorySlot(inventory);
+
+        _isPlaying = true;
     }
 
     private void Update()
@@ -43,11 +73,10 @@ public class LevelScene : MonoBehaviour
     {
         if (Input.GetMouseButtonDown(0))
         {
-            Vector2 worldPos = mainCamera.ScreenToWorldPoint(Input.mousePosition);
-            levelView.OnClickWorld(worldPos);
+            Vector2 worldPos = _mainCamera.ScreenToWorldPoint(Input.mousePosition);
+            _levelView.PressOnPosition(worldPos);
         }
     }
-
 
     public void Register(IEntity entity)
     {
@@ -75,5 +104,19 @@ public class LevelScene : MonoBehaviour
         _paused = false;
         _lastTime = Time.realtimeSinceStartup;
         Debug.Log("[LEVEL] Resumed");
+    }
+
+    public void OnPlayAreaPressed(BaseEventData eventData)
+    {
+        // if (!_isPlaying)
+        // {
+        //     Debug.Log("[LEVEL] OnPlayAreaPressed");
+        //     return;
+        // }
+        //
+        // var data = (PointerEventData)eventData;
+        // var position = _mainCamera.ScreenToWorldPoint(data.position);
+        // _ = _levelView.PressOnPosition(position);
+        // Debug.Log($"Pressed position: {position}");
     }
 }

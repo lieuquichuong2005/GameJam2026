@@ -1,30 +1,54 @@
+using Cysharp.Threading.Tasks;
 using UnityEngine;
 
 /// <summary>
 /// Quản lí Logic. Không quản lí UI.
 /// Cập nhật bằng LevelScene thông qua IEntity
 /// </summary>
-public class LevelView : MonoBehaviour, IEntity
+public class LevelView : InjectableMonoBehaviour, IEntity
 {
-    [SerializeField] private PlayerController player;
+    [Inject] private InventoryService inventory;
 
+    [SerializeField] private PlayerController player;
     [SerializeField] private LayerMask groundMask;
     [SerializeField] private LayerMask obstacleMask;
     [SerializeField] private float snapToGroundDistance = 5f;
 
     private bool hasMoveTarget;
     private float moveTargetX;
-
     private IInteractable pendingInteractable;
 
-    public void OnClickWorld(Vector2 worldPos)
+    protected override void Awake()
+    {
+        // base.Awake(); // ✅ BẮT BUỘC để injection hoạt động
+        var inventoryService = new InventoryService();
+        Services.Register(inventoryService);
+        inventory = inventoryService;
+    }
+
+    public async UniTask PressOnPosition(Vector2 worldPos)
     {
         Debug.Log($"[LEVEL] Click at {worldPos}");
 
-        hasMoveTarget = false;
-        pendingInteractable = null;
-
         var hit = Physics2D.Raycast(worldPos, Vector2.zero);
+
+        if (inventory != null &&
+            inventory.SelectedItem != null &&
+            hit.collider != null &&
+            hit.collider.TryGetComponent<IItemReceiver>(out var receiver))
+        {
+            receiver.UseItem(inventory.SelectedItem);
+            inventory.Select(null); // deselect
+            return;
+        }
+
+        if (hit.collider != null &&
+            hit.collider.TryGetComponent<IItemPickup>(out var itemPickup))
+        {
+            HandleItemPickup(itemPickup);
+            return;
+        }
+
         if (hit.collider != null &&
             hit.collider.TryGetComponent<IInteractable>(out var interactable))
         {
@@ -32,33 +56,48 @@ public class LevelView : MonoBehaviour, IEntity
             return;
         }
 
+        hasMoveTarget = false;
+        pendingInteractable = null;
+
         if (!WalkableUtility.TryGetWalkablePoint(
                 worldPos,
                 player.transform.position,
                 out Vector2 walkablePos,
                 snapToGroundDistance,
                 groundMask))
-        {
-            Debug.Log("[LEVEL] Invalid walkable point");
             return;
-        }
 
         if (!WalkableUtility.IsPathClear(
                 player.transform.position,
                 walkablePos,
                 obstacleMask))
-        {
-            Debug.Log("[LEVEL] Path blocked");
             return;
-        }
 
         moveTargetX = walkablePos.x;
         hasMoveTarget = true;
-
-        Debug.Log($"[LEVEL] Move target X set: {moveTargetX}");
         player.MoveToX(moveTargetX);
     }
 
+    /// <summary>
+    /// Xử lý nhặt item - KHÔNG CẦN ĐI LẠI
+    /// </summary>
+    private void HandleItemPickup(IItemPickup itemPickup)
+    {
+        Debug.Log($"[LEVEL] Clicked item pickup: {itemPickup.GetItem()?.itemId}");
+
+        if (!itemPickup.CanInteract())
+        {
+            Debug.Log("[LEVEL] Cannot pickup this item");
+            return;
+        }
+
+        // Nhặt ngay lập tức
+        itemPickup.Interact();
+    }
+
+    /// <summary>
+    /// Xử lý tương tác với object - CẦN ĐI LẠI GẦN
+    /// </summary>
     private void HandleInteractableClick(IInteractable interactable)
     {
         Debug.Log($"[LEVEL] Clicked interactable: {interactable}");
@@ -80,10 +119,8 @@ public class LevelView : MonoBehaviour, IEntity
         {
             Debug.Log("[LEVEL] Move to interactable first");
             pendingInteractable = interactable;
-
             moveTargetX = interactX;
             hasMoveTarget = true;
-
             player.MoveToX(moveTargetX);
         }
     }
