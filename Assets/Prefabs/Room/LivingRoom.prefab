@@ -999,7 +999,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9c3cfefb5ecee54438575c8d03229ef0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  correctCode: 1234
+  correctCode: 1590
   rewardItem: {fileID: 0}
   codeUI: {fileID: 2972669120555055923}
 --- !u!1 &2203601769750244962
@@ -1417,6 +1417,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   data: {fileID: 11400000, guid: 6069ff8ce4214e84195efa3b3008973c, type: 2}
+  normalMask: []
   bloodMask:
   - {fileID: 8906007183047406704}
   - {fileID: 6421547820708190915}
