@@ -5,4 +5,6 @@
 public interface IItemPickup : IInteractable
 {
     InventoryItem GetItem();
+    void SetVisible(bool visible);
+    void SetInteractable(bool value);
 }

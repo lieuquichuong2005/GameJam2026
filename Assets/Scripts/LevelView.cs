@@ -7,7 +7,7 @@ using UnityEngine;
 /// </summary>
 public class LevelView : InjectableMonoBehaviour, IEntity
 {
-    [Inject] private InventoryService inventory;
+    [Inject] private InventoryService inventoryService;
 
     [SerializeField] private PlayerController player;
     [SerializeField] private LayerMask groundMask;
@@ -17,40 +17,80 @@ public class LevelView : InjectableMonoBehaviour, IEntity
     private bool hasMoveTarget;
     private float moveTargetX;
     private IInteractable pendingInteractable;
+    private IItemPickup pendingItemPickup;
 
     [SerializeField] private RoomDatabase roomDatabase;
     [SerializeField] private RoomManager roomManager;
     [SerializeField] private GameState gameState;
 
-
     protected override void Awake()
     {
-        // base.Awake(); // ✅ BẮT BUỘC để injection hoạt động
-        var inventoryService = new InventoryService();
-        Services.Register(inventoryService);
-        inventory = inventoryService;
+        base.Awake();
+        if (inventoryService == null)
+        {
+            inventoryService = new InventoryService();
+            Services.Register(inventoryService);
+        }
+
+        LevelEventBus.OnRequestChangeRoom += HandleChangeRoom;
+    }
+
+    private void OnDestroy()
+    {
+        LevelEventBus.OnRequestChangeRoom -= HandleChangeRoom;
+    }
+
+    private void HandleChangeRoom(string roomId, Vector2 spawnPos)
+    {
+        EnterRoom(roomId);
+
+        player.transform.position = new Vector3(
+            spawnPos.x,
+            player.transform.position.y,
+            player.transform.position.z
+        );
     }
 
     public async UniTask PressOnPosition(Vector2 worldPos)
     {
         var hit = Physics2D.Raycast(worldPos, Vector2.zero);
 
-        if (inventory != null &&
-            inventory.SelectedItem != null &&
+        if (inventoryService != null &&
+            inventoryService.SelectedItem != null &&
             hit.collider != null &&
             hit.collider.TryGetComponent<IItemReceiver>(out var receiver))
         {
-            receiver.UseItem(inventory.SelectedItem);
-            inventory.Select(null);
+            receiver.UseItem(inventoryService.SelectedItem);
+            inventoryService.Select(null);
             return;
         }
 
         if (hit.collider != null &&
-            hit.collider.TryGetComponent<IItemPickup>(out var itemPickup))
+            hit.collider.TryGetComponent<Item>(out var item))
         {
-            HandleItemPickup(itemPickup);
+            if (!item.RequirePlayerNear)
+            {
+                item.Interact();
+                return;
+            }
+
+            float itemX = item.Transform.position.x;
+
+            if (player.ReachedX(itemX, item.InteractDistance))
+            {
+                item.Interact();
+            }
+            else
+            {
+                pendingItemPickup = item;
+                moveTargetX = itemX;
+                hasMoveTarget = true;
+                player.MoveToX(moveTargetX);
+            }
+
             return;
         }
+
 
         if (hit.collider != null &&
             hit.collider.TryGetComponent<IInteractable>(out var interactable))
@@ -96,17 +136,18 @@ public class LevelView : InjectableMonoBehaviour, IEntity
     /// <summary>
     /// Xử lý nhặt item - KHÔNG CẦN ĐI LẠI
     /// </summary>
-    private void HandleItemPickup(IItemPickup itemPickup)
+    private async void HandleItemPickup(IItemPickup itemPickup)
     {
-        Debug.Log($"[LEVEL] Clicked item pickup: {itemPickup.GetItem()?.itemId}");
+        var item = itemPickup.GetItem();
+        if (item == null) return;
 
-        if (!itemPickup.CanInteract())
-        {
-            Debug.Log("[LEVEL] Cannot pickup this item");
-            return;
-        }
+        itemPickup.SetVisible(false);
+        itemPickup.SetInteractable(false);
 
-        itemPickup.Interact();
+        await FindObjectOfType<LevelScene>()
+            .PlayPickupItemEffect(item, itemPickup.Transform.position);
+
+        Destroy(itemPickup.Transform.gameObject);
     }
 
     /// <summary>
@@ -148,9 +189,15 @@ public class LevelView : InjectableMonoBehaviour, IEntity
             Debug.Log("[LEVEL] Reached move target");
             hasMoveTarget = false;
 
+            if (pendingItemPickup != null)
+            {
+                HandleItemPickup(pendingItemPickup);
+                pendingItemPickup = null;
+                return;
+            }
+
             if (pendingInteractable != null)
             {
-                Debug.Log("[LEVEL] Reached interactable → interact");
                 pendingInteractable.Interact();
                 pendingInteractable = null;
             }

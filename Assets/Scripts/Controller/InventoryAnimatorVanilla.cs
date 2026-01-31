@@ -14,6 +14,7 @@ public class InventoryAnimatorUniTask : MonoBehaviour
     private Button backpackButton;
 
     [Required] [SerializeField] private RectTransform _backpackIcon;
+    [Required] [SerializeField] private Image _backpack;
     [Required] [SerializeField] private RectTransform _slotsContainer;
     [Required] [SerializeField] private List<RectTransform> _slots = new();
 
@@ -30,6 +31,8 @@ public class InventoryAnimatorUniTask : MonoBehaviour
 
     [Header("Visual Effects")] [SerializeField]
     private bool useRotation = false;
+
+    [SerializeField] private Sprite[] _backpackSprites;
 
     [SerializeField] private float rotationAmount = 360f;
 
@@ -153,6 +156,8 @@ public class InventoryAnimatorUniTask : MonoBehaviour
             _slots.Count * slotDelay + Mathf.RoundToInt(animationDuration * 1000),
             cancellationToken: token
         );
+        _backpack.sprite = isOpen ? _backpackSprites[0] : _backpackSprites[1];
+
         isAnimating = false;
         LayoutRebuilder.ForceRebuildLayoutImmediate((RectTransform)_slotsContainer.transform);
     }
@@ -188,6 +193,8 @@ public class InventoryAnimatorUniTask : MonoBehaviour
         );
 
         isAnimating = false;
+
+        _backpack.sprite = isOpen ? _backpackSprites[0] : _backpackSprites[1];
     }
 
     private async UniTask AnimateSlotOpenAsync(

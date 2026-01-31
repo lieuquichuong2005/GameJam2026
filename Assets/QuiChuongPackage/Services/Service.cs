@@ -23,6 +23,7 @@ public static class Services
         if (_services.TryGetValue(type, out var service))
             return service;
 
-        throw new Exception($"Service not registered: {type}");
+        // throw new Exception($"Service not registered: {type}");
+        return null;
     }
 }

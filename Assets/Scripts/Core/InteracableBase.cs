@@ -6,6 +6,7 @@ public abstract class InteractableBase : MonoBehaviour, IInteractable
 
     public Transform Transform => transform;
     public float InteractDistance => interactDistance;
+    public bool RequirePlayerNear { get; }
 
     public virtual bool CanInteract() => true;
 

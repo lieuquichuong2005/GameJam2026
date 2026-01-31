@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: Butter
   m_EditorClassIdentifier: 
   itemId: butter
+  itemType: 3
   icon: {fileID: 21300000, guid: 23dd541d0f44d254ba69ce4493e13ed6, type: 3}
   inspectSprite: {fileID: 21300000, guid: 23dd541d0f44d254ba69ce4493e13ed6, type: 3}
   canRotate: 0
