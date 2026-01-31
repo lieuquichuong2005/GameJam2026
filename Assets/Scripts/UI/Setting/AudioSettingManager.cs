@@ -39,14 +39,9 @@ public class AudioSettingManager : MonoBehaviour
 
     void SetVolume(string mixerParam, string prefKey, float value01, bool save = true)
     {
-        value01 = Mathf.Clamp01(value01);
-
-        // Convert linear [0..1] to dB.
-        // 1.0 => 0 dB, 0.0 => -80 dB (silent)
-        float db = (value01 > 0.0001f) ? Mathf.Log10(value01) * 20f : -80f;
-
-        if (mixer != null)
-            mixer.SetFloat(mixerParam, db);
+        value01 = Mathf.Clamp(value01, 0.0001f, 1f); // never 0
+        float db = Mathf.Log10(value01) * 20f;
+        mixer.SetFloat(mixerParam, db);
 
         if (save)
         {
