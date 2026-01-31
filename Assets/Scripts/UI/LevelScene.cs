@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
@@ -49,10 +50,20 @@ public class LevelScene : InjectableMonoBehaviour
         _isPlaying = true;
     }
 
+    private void OnEnable()
+    {
+        PlayAreaInput.OnClick += OnClicked;
+    }
+
+    private void OnDisable()
+    {
+        PlayAreaInput.OnClick -= OnClicked;
+    }
+
     private void Update()
     {
         HandleUpdate();
-        HandleInput();
+        // HandleInput();
     }
 
     private void HandleUpdate()
@@ -118,5 +129,18 @@ public class LevelScene : InjectableMonoBehaviour
         // var position = _mainCamera.ScreenToWorldPoint(data.position);
         // _ = _levelView.PressOnPosition(position);
         // Debug.Log($"Pressed position: {position}");
+    }
+
+    private void OnClicked(Vector2 scenepoint)
+    {
+        if (!_isPlaying)
+        {
+            Debug.Log("[LEVEL] OnPlayAreaPressed");
+            return;
+        }
+
+        var position = _mainCamera.ScreenToWorldPoint(scenepoint);
+        _ = _levelView.PressOnPosition(position);
+        Debug.Log($"Pressed position: {position}");
     }
 }
