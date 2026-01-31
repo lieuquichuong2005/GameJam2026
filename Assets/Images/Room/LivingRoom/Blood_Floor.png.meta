@@ -1,0 +1,676 @@
+fileFormatVersion: 2
+guid: e6289a563d0abd2498fee6ce703e33bb
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -4456108715041442837
+    second: Blood_Floor_0
+  - first:
+      213: -723089442146999776
+    second: Blood_Floor_1
+  - first:
+      213: -8702742607254849265
+    second: Blood_Floor_2
+  - first:
+      213: -6326567482042386070
+    second: Blood_Floor_3
+  - first:
+      213: 9126119510387442505
+    second: Blood_Floor_4
+  - first:
+      213: 5796909830673500864
+    second: Blood_Floor_5
+  - first:
+      213: 5792191117532463099
+    second: Blood_Floor_6
+  - first:
+      213: -9119168703351561723
+    second: Blood_Floor_7
+  - first:
+      213: 6702489614017431035
+    second: Blood_Floor_8
+  - first:
+      213: -4887826144616186818
+    second: Blood_Floor_9
+  - first:
+      213: 3786734901370240981
+    second: Blood_Floor_10
+  - first:
+      213: 3103992467522989930
+    second: Blood_Floor_11
+  - first:
+      213: 319758304424858835
+    second: Blood_Floor_12
+  - first:
+      213: -395942950500001860
+    second: Blood_Floor_13
+  - first:
+      213: -2672185999228819392
+    second: Blood_Floor_14
+  - first:
+      213: 7152695350723602541
+    second: Blood_Floor_15
+  - first:
+      213: -6464694654719089885
+    second: Blood_Floor_16
+  - first:
+      213: 88496450653342843
+    second: Blood_Floor_17
+  - first:
+      213: 1604784503008132370
+    second: Blood_Floor_18
+  - first:
+      213: 48656824770443562
+    second: Blood_Floor_19
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: iOS
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Blood_Floor_0
+      rect:
+        serializedVersion: 2
+        x: 526
+        y: 651
+        width: 97
+        height: 51
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: be3be6fabb8b822c0800000000000000
+      internalID: -4456108715041442837
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Blood_Floor_1
+      rect:
+        serializedVersion: 2
+        x: 72
+        y: 302
+        width: 118
+        height: 33
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0222ef3cbf117f5f0800000000000000
+      internalID: -723089442146999776
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Blood_Floor_2
+      rect:
+        serializedVersion: 2
+        x: 191
+        y: 312
+        width: 13
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f09fae235b5a93780800000000000000
+      internalID: -8702742607254849265
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Blood_Floor_3
+      rect:
+        serializedVersion: 2
+        x: 463
+        y: 256
+        width: 10
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a69735905648338a0800000000000000
+      internalID: -6326567482042386070
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Blood_Floor_4
+      rect:
+        serializedVersion: 2
+        x: 487
+        y: 253
+        width: 18
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 943c76aa75d76ae70800000000000000
+      internalID: 9126119510387442505
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Blood_Floor_5
+      rect:
+        serializedVersion: 2
+        x: 1004
+        y: 257
+        width: 12
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0ca834417c2c27050800000000000000
+      internalID: 5796909830673500864
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Blood_Floor_6
+      rect:
+        serializedVersion: 2
+        x: 1039
+        y: 247
+        width: 77
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bfff1bf022ff16050800000000000000
+      internalID: 5792191117532463099
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Blood_Floor_7
+      rect:
+        serializedVersion: 2
+        x: 109
+        y: 185
+        width: 37
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 502eed53164327180800000000000000
+      internalID: -9119168703351561723
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Blood_Floor_8
+      rect:
+        serializedVersion: 2
+        x: 130
+        y: 57
+        width: 563
+        height: 194
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bf5014aeac6040d50800000000000000
+      internalID: 6702489614017431035
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Blood_Floor_9
+      rect:
+        serializedVersion: 2
+        x: 666
+        y: 0
+        width: 730
+        height: 254
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e3cf84ea404fa2cb0800000000000000
+      internalID: -4887826144616186818
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Blood_Floor_10
+      rect:
+        serializedVersion: 2
+        x: 1412
+        y: 172
+        width: 9
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5df3fbe645f2d8430800000000000000
+      internalID: 3786734901370240981
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Blood_Floor_11
+      rect:
+        serializedVersion: 2
+        x: 105
+        y: 135
+        width: 11
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a6f223c14b8931b20800000000000000
+      internalID: 3103992467522989930
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Blood_Floor_12
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 70
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3d49935db72007400800000000000000
+      internalID: 319758304424858835
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Blood_Floor_13
+      rect:
+        serializedVersion: 2
+        x: 16
+        y: 70
+        width: 117
+        height: 56
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cb7902cfbf3518af0800000000000000
+      internalID: -395942950500001860
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Blood_Floor_14
+      rect:
+        serializedVersion: 2
+        x: 20
+        y: 67
+        width: 10
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 048a136ddfc7aead0800000000000000
+      internalID: -2672185999228819392
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Blood_Floor_15
+      rect:
+        serializedVersion: 2
+        x: 122
+        y: 69
+        width: 22
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d68e77e568a734360800000000000000
+      internalID: 7152695350723602541
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Blood_Floor_16
+      rect:
+        serializedVersion: 2
+        x: 165
+        y: 50
+        width: 9
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3232a14867ac846a0800000000000000
+      internalID: -6464694654719089885
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Blood_Floor_17
+      rect:
+        serializedVersion: 2
+        x: 644
+        y: 41
+        width: 19
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b7c43119d076a3100800000000000000
+      internalID: 88496450653342843
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Blood_Floor_18
+      rect:
+        serializedVersion: 2
+        x: 656
+        y: 21
+        width: 29
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 21df9d2c007554610800000000000000
+      internalID: 1604784503008132370
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Blood_Floor_19
+      rect:
+        serializedVersion: 2
+        x: 783
+        y: 0
+        width: 12
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a293754df1ddca000800000000000000
+      internalID: 48656824770443562
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      Blood_Floor_0: -4456108715041442837
+      Blood_Floor_1: -723089442146999776
+      Blood_Floor_10: 3786734901370240981
+      Blood_Floor_11: 3103992467522989930
+      Blood_Floor_12: 319758304424858835
+      Blood_Floor_13: -395942950500001860
+      Blood_Floor_14: -2672185999228819392
+      Blood_Floor_15: 7152695350723602541
+      Blood_Floor_16: -6464694654719089885
+      Blood_Floor_17: 88496450653342843
+      Blood_Floor_18: 1604784503008132370
+      Blood_Floor_19: 48656824770443562
+      Blood_Floor_2: -8702742607254849265
+      Blood_Floor_3: -6326567482042386070
+      Blood_Floor_4: 9126119510387442505
+      Blood_Floor_5: 5796909830673500864
+      Blood_Floor_6: 5792191117532463099
+      Blood_Floor_7: -9119168703351561723
+      Blood_Floor_8: 6702489614017431035
+      Blood_Floor_9: -4887826144616186818
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
