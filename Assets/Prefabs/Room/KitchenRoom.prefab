@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 4319903299552441487}
   - component: {fileID: 2347791711526879288}
   - component: {fileID: 6995863351271218901}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: KitchenRoom
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -32,6 +32,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 9144595231780453832}
+  - {fileID: 7849519408443621052}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &2347791711526879288
@@ -103,7 +104,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3406581700740841148}
   - component: {fileID: 9090255483055392425}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: Shelf
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -193,7 +194,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1869746831776906519}
   - component: {fileID: 4284122656703465824}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: Counter_0
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -280,7 +281,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5881637106850365986}
   - component: {fileID: 4201086812746521956}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: Ribb
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -368,7 +369,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4451752720168328448}
   - component: {fileID: 6912397099925019488}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: Fridge
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -455,7 +456,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8111023521008440379}
   - component: {fileID: 8992731076970611230}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: Oven1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -542,7 +543,7 @@ GameObject:
   m_Component:
   - component: {fileID: 9066231629637413023}
   - component: {fileID: 2660527505721286514}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: Stove
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -630,7 +631,7 @@ GameObject:
   m_Component:
   - component: {fileID: 9144595231780453832}
   - component: {fileID: 8273120478376872915}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: BG_Kitchen_0
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -711,6 +712,84 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &7954978290388762662
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7849519408443621052}
+  - component: {fileID: 3826261111401457727}
+  m_Layer: 6
+  m_Name: Ground
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7849519408443621052
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7954978290388762662}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 4319903299552441487}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!61 &3826261111401457727
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7954978290388762662}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_CompositeOperation: 0
+  m_CompositeOrder: 0
+  m_Offset: {x: -0.013360977, y: -3.006185}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Size: {x: 19.250881, y: 4.447091}
+  m_EdgeRadius: 0
 --- !u!1001 &650166386912693130
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -765,7 +844,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8517721790720769934, guid: 86e244f79729ab841afa6c0ddf2abe60, type: 3}
       propertyPath: m_Layer
-      value: 6
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 4648318677782304119, guid: 86e244f79729ab841afa6c0ddf2abe60, type: 3}
@@ -832,7 +911,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5597962690440195335, guid: 65575ebf9279b744e8da86c4593bd0c0, type: 3}
       propertyPath: m_Layer
-      value: 6
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -880,7 +959,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 786727886202989487, guid: e96ebf6424afd3c4f937e687324d2008, type: 3}
       propertyPath: m_Layer
-      value: 6
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2755691573457658879, guid: e96ebf6424afd3c4f937e687324d2008, type: 3}
       propertyPath: m_LocalPosition.x
