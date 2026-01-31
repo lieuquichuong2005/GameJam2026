@@ -20,5 +20,8 @@ public class Service : MonoBehaviour
         var dataService = new JsonDataService();
         dataService.Load();
         Services.Register<IDataService>(dataService);
+
+        var inventoryService = new InventoryService();
+        Services.Register(inventoryService);
     }
 }
