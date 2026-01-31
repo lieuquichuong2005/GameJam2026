@@ -29,9 +29,9 @@ public class PlayerController : MonoBehaviour, IEntity
         Debug.Log($"[PLAYER] Move to X = {x}");
     }
 
-    public bool ReachedX(float threshold = 0.05f)
+    public bool ReachedX(float x, float threshold = 0.3f)
     {
-        return Mathf.Abs(transform.position.x - targetX) <= threshold;
+        return Mathf.Abs(transform.position.x - x) <= threshold;
     }
 
     public void OnUpdate(float deltaTime)
@@ -50,7 +50,7 @@ public class PlayerController : MonoBehaviour, IEntity
 
             PlayAnim(Walk, true);
 
-            if (ReachedX())
+            if (ReachedX(targetX))
             {
                 isMoving = false;
                 PlayAnim(Idle, true);
