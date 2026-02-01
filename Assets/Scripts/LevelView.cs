@@ -8,6 +8,7 @@ using UnityEngine;
 public class LevelView : InjectableMonoBehaviour, IEntity
 {
     [Inject] private InventoryService inventoryService;
+    [Inject] private AudioService audioService;
 
     [SerializeField] private PlayerController player;
     [SerializeField] private LayerMask groundMask;
@@ -53,6 +54,8 @@ public class LevelView : InjectableMonoBehaviour, IEntity
 
     public async UniTask PressOnPosition(Vector2 worldPos)
     {
+        audioService.Play(AudioId.Click);
+        
         var hit = Physics2D.Raycast(worldPos, Vector2.zero);
 
         if (inventoryService != null &&

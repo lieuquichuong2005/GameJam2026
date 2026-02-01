@@ -8,7 +8,7 @@ using EditorAttributes;
 /// <summary>
 /// Animate inventory slots - UniTask version
 /// </summary>
-public class InventoryAnimatorUniTask : MonoBehaviour
+public class InventoryAnimatorUniTask : InjectableMonoBehaviour
 {
     [Header("References")] [SerializeField] [Required]
     private Button backpackButton;
@@ -36,6 +36,8 @@ public class InventoryAnimatorUniTask : MonoBehaviour
 
     [SerializeField] private float rotationAmount = 360f;
 
+    [Inject] private AudioService _audioService;
+
     private bool isOpen;
     private bool isAnimating;
     private CancellationTokenSource animationCTS;
@@ -44,8 +46,10 @@ public class InventoryAnimatorUniTask : MonoBehaviour
     private List<Vector2> cachedOpenPositions = new List<Vector2>();
     private bool layoutInitialized = false;
 
-    private void Start()
+    protected override void Awake()
     {
+        base.Awake();
+
         backpackButton?.onClick.AddListener(ToggleInventory);
         InitializeClosedState();
     }
@@ -100,12 +104,14 @@ public class InventoryAnimatorUniTask : MonoBehaviour
     public void OpenInventory()
     {
         if (isAnimating || isOpen) return;
+        _audioService.Play(AudioId.OpenBackPack);
         RunAnimation(AnimateOpenAsync);
     }
 
     public void CloseInventory()
     {
         if (isAnimating || !isOpen) return;
+        _audioService.Play(AudioId.CloseBackPack);
         RunAnimation(AnimateCloseAsync);
     }
 

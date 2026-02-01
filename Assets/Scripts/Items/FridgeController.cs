@@ -2,14 +2,21 @@ using System;
 using EditorAttributes;
 using UnityEngine;
 
-public class FridgeDoorInteractable : MonoBehaviour, IInteractable
+public class FridgeDoorInteractable : InjectableMonoBehaviour, IInteractable
 {
+    [Inject] private AudioService _audioService;
+
     [SerializeField] private GameObject _doorClosed;
     [SerializeField] private GameObject _doorOpened;
     [Required] [SerializeField] private Collider2D _collider;
 
     private bool isOpened = false;
     private bool _isCanInteract = true;
+
+    protected override void Awake()
+    {
+        base.Awake();
+    }
 
     private void OnEnable()
     {
@@ -51,6 +58,7 @@ public class FridgeDoorInteractable : MonoBehaviour, IInteractable
 
     private void OpenDoor()
     {
+        _audioService.Play(AudioId.OpenFridge);
         isOpened = true;
 
         _doorClosed.SetActive(false);
@@ -62,6 +70,7 @@ public class FridgeDoorInteractable : MonoBehaviour, IInteractable
 
     private void CloseDoor()
     {
+        _audioService.Play(AudioId.CloseFridge);
         isOpened = false;
         _doorOpened.SetActive(false);
         _doorClosed.SetActive(true);

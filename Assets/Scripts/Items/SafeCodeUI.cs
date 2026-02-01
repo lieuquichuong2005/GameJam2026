@@ -3,14 +3,21 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class SafeCodeUI : MonoBehaviour
+public class SafeCodeUI : InjectableMonoBehaviour
 {
+    [Inject] private AudioService audioService;
+
     [SerializeField] private TextMeshProUGUI displayText;
 
     private string currentInput = "";
 
     public event Action<string> OnSubmit;
     public event Action OnCancel;
+
+    protected override void Awake()
+    {
+        base.Awake();
+    }
 
     public void Show()
     {
@@ -27,7 +34,7 @@ public class SafeCodeUI : MonoBehaviour
     public void PressNumber(string num)
     {
         if (currentInput.Length >= 4) return;
-
+        audioService.Play(AudioId.SafeLockButtonPress);
         currentInput += num;
         UpdateDisplay();
     }

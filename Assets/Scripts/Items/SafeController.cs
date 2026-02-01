@@ -1,8 +1,10 @@
 using System;
 using UnityEngine;
 
-public class SafeController : MonoBehaviour
+public class SafeController : InjectableMonoBehaviour
 {
+    [Inject] private AudioService _audioService;
+
     [SerializeField] private string correctCode = "1234";
     [SerializeField] private GameObject rewardItem;
     [SerializeField] private SafeCodeUI codeUI;
@@ -11,8 +13,10 @@ public class SafeController : MonoBehaviour
 
     public bool IsOpened { get; private set; }
 
-    private void Awake()
+    protected override void Awake()
     {
+        base.Awake();
+
         codeUI.Hide();
         codeUI.OnSubmit += CheckCode;
         codeUI.OnCancel += OnCancel;
@@ -30,11 +34,13 @@ public class SafeController : MonoBehaviour
         if (input == correctCode)
         {
             OpenSafe();
+            _audioService.Play(AudioId.CorrectSafeLockPassword);
             IsUnlocked?.Invoke(true);
         }
         else
         {
             codeUI.PlayError();
+            _audioService.Play(AudioId.WrongSafeLockPassword);
             IsUnlocked?.Invoke(false);
         }
     }

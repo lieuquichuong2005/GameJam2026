@@ -13,5 +13,20 @@ public enum AudioId
     BgmHorror_02,
 
     Win,
-    Lose
+    Lose,
+    FootStep,
+    HoldItem, 
+    Knife,
+    CloseBackPack,
+    OpenBackPack,
+    CloseFridge,
+    OpenFridge,
+    WrongSafeLockPassword,
+    CorrectSafeLockPassword,
+    IceBreak_01,
+    IceBreak_02,
+    IceBreak_03,
+    IceBreak_04,
+    SafeLockButtonPress,
+    CookCake,
 }

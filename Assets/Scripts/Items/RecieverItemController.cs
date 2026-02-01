@@ -13,6 +13,8 @@ public class StoveReceiver : InjectableMonoBehaviour, IItemDropTarget
         public GameObject Visual;
     }
 
+    [Inject] private AudioService _audioService;
+
     [Header("Recipe")] [SerializeField] private StoveRecipe recipe;
 
     [Header("Visual")] [SerializeField] private List<VisualObject> ingredientVisuals;
@@ -26,11 +28,6 @@ public class StoveReceiver : InjectableMonoBehaviour, IItemDropTarget
     protected override void Awake()
     {
         base.Awake();
-        if (_inventoryService == null)
-        {
-            _inventoryService = Services.Get<InventoryService>();
-        }
-
         ingredients = new Dictionary<ItemType, GameObject>();
         foreach (var vo in ingredientVisuals)
         {
@@ -73,10 +70,12 @@ public class StoveReceiver : InjectableMonoBehaviour, IItemDropTarget
             vo.Visual.SetActive(false);
         }
 
+        _audioService.Play(AudioId.CookCake);
+
         isCooked = true;
         cookedVisual.SetActive(true);
 
-        await UniTask.Delay(2000);
+        await UniTask.Delay(8000);
 
         cookedVisual.SetActive(false);
         _pieCake.SetActive(true);

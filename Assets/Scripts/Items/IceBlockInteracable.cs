@@ -1,8 +1,10 @@
 using System;
 using UnityEngine;
 
-public class IceBlockInteractable : MonoBehaviour, IInteractable
+public class IceBlockInteractable : InjectableMonoBehaviour, IInteractable
 {
+    [Inject] private AudioService _audioService;
+
     [Header("Interaction")] [SerializeField]
     private bool _requirePlayerNear = true;
 
@@ -23,6 +25,11 @@ public class IceBlockInteractable : MonoBehaviour, IInteractable
 
     public static Action SetCanInteractable;
 
+    protected override void Awake()
+    {
+        base.Awake();
+    }
+
     public bool CanInteract() => !broken;
 
     public void Interact()
@@ -33,10 +40,12 @@ public class IceBlockInteractable : MonoBehaviour, IInteractable
         if (clickCount == 1)
         {
             _crack_01.SetActive(true);
+            _audioService.Play(AudioId.IceBreak_01);
         }
         else if (clickCount == 2)
         {
             _crack_02.SetActive(true);
+            _audioService.Play(AudioId.IceBreak_02);
         }
 
         Debug.Log($"[ICE] Hit {clickCount}/{_breakClicksRequired}");
@@ -45,6 +54,7 @@ public class IceBlockInteractable : MonoBehaviour, IInteractable
 
         if (clickCount >= _breakClicksRequired)
         {
+            _audioService.Play(AudioId.IceBreak_03);
             BreakIce();
         }
     }
